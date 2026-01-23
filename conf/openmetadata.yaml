@@ -276,9 +276,10 @@ migrationConfiguration:
   extensionPath: ""
 
 # Authorizer Configuration
+# AUTHENTICATION DISABLED - Using NoopAuthorizer and NoopFilter to bypass all auth checks
 authorizerConfiguration:
-  className: ${AUTHORIZER_CLASS_NAME:-org.openmetadata.service.security.DefaultAuthorizer}
-  containerRequestFilter: ${AUTHORIZER_REQUEST_FILTER:-org.openmetadata.service.security.JwtFilter}
+  className: ${AUTHORIZER_CLASS_NAME:-org.openmetadata.service.security.NoopAuthorizer}
+  containerRequestFilter: ${AUTHORIZER_REQUEST_FILTER:-org.openmetadata.service.security.NoopFilter}
   adminPrincipals: ${AUTHORIZER_ADMIN_PRINCIPALS:-[admin]}
   allowedEmailRegistrationDomains: ${AUTHORIZER_ALLOWED_REGISTRATION_DOMAIN:-["all"]}
   principalDomain: ${AUTHORIZER_PRINCIPAL_DOMAIN:-"open-metadata.org"}
