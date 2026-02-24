@@ -1,0 +1,85 @@
+/*
+ *  Copyright 2024 Collate.
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+@import (reference) '../../../styles/variables.less';
+
+.setting-card-item {
+  border: 1px solid @grey-15;
+  background-color: @white;
+  border-radius: 12px;
+  width: 100%;
+  cursor: pointer;
+  height: 100%;
+
+  &:hover {
+    border: 1px solid @blue-20;
+  }
+
+  .ant-card-body {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 4px;
+  }
+
+  .setting-card-icon {
+    position: relative;
+    flex: 0 0 auto;
+
+    svg {
+      font-size: 90px;
+      fill: transparent;
+    }
+
+    .service-beta-tag {
+      position: absolute;
+      top: 10%;
+      right: -15%;
+
+      sup {
+        font-size: 10px;
+        height: auto;
+        font-weight: 500;
+        background: @grey-200;
+        color: @text-color-tertiary;
+        box-shadow: none;
+        border: none;
+        border-radius: 16px;
+        padding: 0 8px;
+      }
+    }
+  }
+
+  .setting-card-content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: @size-mlg;
+    gap: @size-xs;
+    .ant-typography {
+      color: @grey-700;
+    }
+
+    .ant-typography-ellipsis {
+      color: @grey-700;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.setting-card-body {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0;
+}

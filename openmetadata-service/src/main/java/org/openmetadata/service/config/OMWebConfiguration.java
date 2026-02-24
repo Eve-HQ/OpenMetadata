@@ -1,0 +1,23 @@
+package org.openmetadata.service.config;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
+import org.openmetadata.service.config.web.WebConfiguration;
+
+@Setter
+@Getter
+public class OMWebConfiguration extends WebConfiguration {
+
+  @JsonProperty("referrer-policy")
+  private ReferrerPolicyHeaderFactory referrerPolicyHeaderFactory;
+
+  @JsonProperty("permission-policy")
+  private PermissionPolicyHeaderFactory permissionPolicyHeaderFactory;
+
+  @JsonProperty("cache-control")
+  private String cacheControl;
+
+  @JsonProperty("pragma")
+  private String pragma;
+}

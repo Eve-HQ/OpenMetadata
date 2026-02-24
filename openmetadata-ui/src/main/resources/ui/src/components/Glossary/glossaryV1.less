@@ -1,0 +1,215 @@
+/*
+ *  Copyright 2022 Collate.
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
+@import '../../styles/variables.less';
+
+@box-shadow-color: rgba(0, 0, 0, 0.06);
+@left-panel-border-color: rgb(229, 231, 235);
+
+.display-name {
+  .ant-typography {
+    margin-bottom: 0;
+  }
+
+  .ant-btn {
+    padding: 0px;
+  }
+}
+
+.input-width {
+  width: 100%;
+}
+
+.edit-input {
+  padding: 0 0 8px;
+}
+
+.icon-buttons {
+  padding: 0.2rem 0.2rem;
+  border-radius: 0.2rem;
+  margin-right: 0.3rem;
+}
+
+.manage-button {
+  .ant-space-item:first-child {
+    width: 40px;
+    align-self: baseline;
+  }
+}
+
+.glossary-manage-dropdown-list-container {
+  .ant-dropdown-menu {
+    padding: 8px 0px;
+    background: @white;
+    border: 1px solid #dde3ea;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+
+    .ant-dropdown-menu-item {
+      padding: 5px 16px;
+    }
+  }
+}
+
+.glossary-tree-container {
+  .ant-tree-node-content-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    gap: 4px;
+  }
+
+  .ant-tree-title {
+    width: calc(100% - 8px);
+  }
+}
+
+.glossary-name-column {
+  white-space: nowrap;
+  min-width: 300px;
+}
+
+.custom-glossary-dropdown-menu {
+  .ant-dropdown-menu {
+    background-color: @white;
+    border-color: @grey-4;
+  }
+
+  .ant-dropdown-menu-item {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .ant-dropdown-menu-item:hover {
+    background-color: @white;
+    color: inherit;
+  }
+}
+
+.glossary-col-sel-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: @white;
+  border-color: @grey-3;
+}
+
+.status-dropdown {
+  .ant-dropdown-menu-item {
+    padding-left: @padding-sm;
+    padding-right: @padding-xs;
+  }
+
+  .ant-checkbox-wrapper {
+    height: 33px;
+  }
+}
+
+.custom-status-dropdown-btn {
+  background-color: @white;
+  outline: 1px solid @grey-2;
+  color: @black;
+}
+
+.custom-glossary-dropdown-action-btn {
+  height: 26px;
+  width: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glossary-page-tabs {
+  .ant-tabs-tabpane {
+    height: @glossary-page-height;
+    overflow-y: auto;
+
+    .activity-feed-tab {
+      height: 100%;
+
+      .right-container,
+      .center-container {
+        height: 100%;
+      }
+    }
+  }
+}
+
+.glossary-term-page-tabs {
+  .ant-tabs-tabpane {
+    height: @glossary-term-page-height;
+    overflow-y: auto;
+  }
+
+  .activity-feed-tab {
+    height: 100%;
+
+    .right-container,
+    .center-container {
+      height: 100%;
+    }
+  }
+}
+.glossary-name-column {
+  .expand-loader {
+    width: '10px';
+    height: '10px';
+    display: inline-block;
+  }
+}
+
+.warning-icon {
+  background-color: @alert-warning-icon-bg-1;
+  border: 6px solid @alert-warning-icon-bg-2;
+  font-size: 20px;
+  border-radius: 50%;
+  padding: 8px;
+  color: #dc6803;
+}
+
+// Sticky table headers for glossary terms table
+.glossary-terms-scroll-container {
+  .glossary-terms-table {
+    .ant-table-thead {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: @white;
+
+      th {
+        background: @white !important;
+      }
+    }
+
+    // Ensure the table header shadow appears when scrolling
+    .ant-table-thead::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: @grey-3;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    }
+  }
+}
+
+// Background color for nested glossary terms
+.ant-table-tbody > tr.glossary-nested-row {
+  background-color: @grey-50;
+
+  &:hover > td,
+  > td.ant-table-cell-row-hover {
+    background-color: @grey-100;
+  }
+}

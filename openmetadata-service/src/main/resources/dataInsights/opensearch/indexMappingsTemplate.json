@@ -1,0 +1,24 @@
+{
+  "template": {
+    "settings": {
+      "index": {
+        "max_ngram_diff": 17
+      }
+    },
+    "mappings": {
+      "properties": {
+        "@timestamp": {
+          "type": "date"
+        },
+        "id": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,75 @@
+/*
+ *  Copyright 2023 Collate.
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+@import '../../../styles/variables.less';
+
+.explore-search-card {
+  padding: 20px;
+  position: relative;
+  border-radius: 12px;
+  border-left: 4px solid transparent;
+  opacity: 0.95;
+  background-color: @grey-9 !important;
+  border: 0.5px solid #eaecf5;
+  margin: 0 0 20px;
+  overflow: hidden;
+  .no-owner-text {
+    font-size: @size-sm;
+    font-weight: @font-regular;
+  }
+  &.highlight-card {
+    border-left: 4px solid @primary-color;
+    background: @primary-50 !important;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .entity-summary-details {
+    font-size: 12px;
+
+    .no-owner {
+      color: @text-grey-muted;
+    }
+  }
+
+  .explore-card-actions {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    transition: width 0.3s;
+    padding: 4px;
+    border-radius: 6px;
+    display: flex;
+  }
+  .ProseMirror-hideselection *::selection {
+    background: inherit;
+  }
+}
+
+.assets-checkbox .ant-checkbox-inner {
+  border-width: 2px;
+  height: 18px;
+  width: 18px;
+  border-color: @primary-color;
+}
+
+.score-container {
+  background-color: @blue-14;
+  padding: 6px;
+  border-radius: 6px;
+
+  .score {
+    color: @primary-heading-color;
+  }
+}

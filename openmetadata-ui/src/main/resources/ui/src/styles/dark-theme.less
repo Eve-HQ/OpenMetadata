@@ -1,0 +1,842 @@
+/*
+ *  Copyright 2024 Collate.
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ */
+
+ @import (reference) './variables.less';
+
+ // Dark Mode Theme Variables and Styles
+ body.dark-mode {
+   // Background colors
+   background: #0a0d12;
+   color: #fafafa;
+   
+   .main-container {
+     background: #0a0d12;
+   }
+   
+   .content-wrapper {
+     background: #0a0d12;
+     color: #fafafa;
+   }
+   
+   // Override background utilities
+   .bg-body-main {
+     background: #0a0d12;
+   }
+   
+   .bg-white {
+     background-color: #181d27;
+   }
+   
+   .bg-grey {
+     background-color: #252b37;
+   }
+   
+   .bg-grey-1,
+   .bg-grey-2 {
+     background-color: #181d27;
+   }
+   
+   .bg-grey-5,
+   .bg-grey-6 {
+     background-color: #252b37;
+   }
+   
+   // Border colors
+   .global-border,
+   .border-main,
+   .border-gray {
+     border-color: #414651;
+   }
+   
+   // Text colors
+   .text-color,
+   .entity-header-display-name {
+     color: #fafafa;
+   }
+   
+   .text-grey-muted {
+     color: #a4a7ae;
+   }
+   
+   // Cards
+   .ant-card {
+     background: #181d27;
+     border-color: #414651;
+     color: #fafafa;
+   }
+   
+   .card-shadow,
+   .card-box-shadow {
+     background: #181d27;
+     box-shadow: 0px 4px 6px -2px rgba(0, 0, 0, 0.3),
+       0px 12px 16px -4px rgba(0, 0, 0, 0.4);
+   }
+   
+   // Tables
+   .ant-table {
+     background: #181d27;
+     color: #fafafa;
+     
+     .ant-table-thead > tr > th {
+       background: #252b37;
+       color: #d5d7da;
+       border-color: #414651;
+     }
+     
+     .ant-table-tbody > tr > td {
+       border-color: #414651;
+       background: #181d27;
+       color: #fafafa;
+     }
+     
+     .ant-table-tbody > tr:hover > td {
+       background: #252b37 !important;
+     }
+     
+     .ant-table-row-selected > td {
+       background: #252b37 !important;
+     }
+   }
+   
+   // Input fields
+   .ant-input,
+   .ant-input-number,
+   .ant-picker {
+     background: #252b37;
+     border-color: #414651;
+     color: #fafafa;
+     
+     &:hover,
+     &:focus {
+       background: #252b37;
+       border-color: #039855;
+     }
+     
+     &::placeholder {
+       color: #717680;
+     }
+   }
+   
+   .ant-input-affix-wrapper {
+     background: #252b37;
+     border-color: #414651;
+     
+     &:hover,
+     &:focus {
+       border-color: #039855;
+     }
+     
+     input {
+       background: transparent;
+       color: #fafafa;
+     }
+   }
+   
+   // Select
+   .ant-select-selector {
+     background: #252b37 !important;
+     border-color: #414651 !important;
+     color: #fafafa !important;
+   }
+   
+   .ant-select-arrow {
+     color: #a4a7ae;
+   }
+   
+   .ant-select-dropdown {
+     background: #252b37;
+     
+     .ant-select-item {
+       color: #fafafa;
+       
+       &:hover {
+         background: #414651;
+       }
+       
+       &-option-selected {
+         background: #414651;
+       }
+     }
+   }
+   
+   // Modals
+   .ant-modal-content {
+     background: #181d27;
+     color: #fafafa;
+   }
+   
+   .ant-modal-header {
+     background: #181d27;
+     border-color: #414651;
+     
+     .ant-modal-title {
+       color: #fafafa;
+     }
+   }
+   
+   .ant-modal-footer {
+     border-color: #414651;
+   }
+   
+   .ant-modal-close-x {
+     color: #a4a7ae;
+     
+     &:hover {
+       color: #fafafa;
+     }
+   }
+   
+   // Buttons
+   .ant-btn-default {
+     background: #252b37;
+     border-color: #414651;
+     color: #fafafa;
+     
+     &:hover,
+     &:focus {
+       background: #414651;
+       border-color: #535862;
+       color: #fafafa;
+     }
+   }
+   
+   .ant-btn-text {
+     color: #d5d7da;
+     
+     &:hover {
+       background: #252b37;
+       color: #fafafa;
+     }
+   }
+   
+   // Tabs
+   .ant-tabs-nav {
+     &::before {
+       border-color: #414651;
+     }
+   }
+   
+   .ant-tabs-tab {
+     color: #a4a7ae;
+     
+     &:hover {
+       color: #d5d7da;
+     }
+     
+     &.ant-tabs-tab-active .ant-tabs-tab-btn {
+       color: #039855;
+     }
+   }
+   
+   .ant-tabs-ink-bar {
+     background: #039855;
+   }
+   
+   // Dropdown
+   .ant-dropdown-menu {
+     background: #252b37;
+     
+     .ant-dropdown-menu-item {
+       color: #fafafa;
+       
+       &:hover {
+         background: #414651;
+       }
+     }
+   }
+   
+   // Menu
+   .ant-menu {
+     background: #181d27;
+     color: #fafafa;
+     
+     .ant-menu-item {
+       color: #a4a7ae;
+       
+       &:hover {
+         color: #fafafa;
+         background: #252b37;
+       }
+       
+       &-selected {
+         background: #252b37;
+         color: #039855;
+       }
+     }
+   }
+   
+   // Collapse
+   .ant-collapse {
+     background: #181d27;
+     border-color: #414651;
+     
+     .ant-collapse-item {
+       border-color: #414651;
+     }
+     
+     .ant-collapse-header {
+       color: #fafafa;
+     }
+     
+     .ant-collapse-content {
+       background: #181d27;
+       color: #fafafa;
+       border-color: #414651;
+     }
+   }
+   
+   // Popover
+   .ant-popover-inner {
+     background: #252b37;
+     
+     .ant-popover-title {
+       color: #fafafa;
+       border-color: #414651;
+     }
+     
+     .ant-popover-inner-content {
+       color: #fafafa;
+     }
+   }
+   
+   .ant-popover-arrow-content {
+     background: #252b37;
+   }
+   
+   // Tooltip
+   .ant-tooltip-inner {
+     background: #414651;
+     color: #fafafa;
+   }
+   
+   .ant-tooltip-arrow-content {
+     background: #414651;
+   }
+   
+   // Divider
+   .ant-divider {
+     border-color: #414651;
+   }
+   
+   // Alert
+   .ant-alert {
+     &-info {
+       background: rgba(3, 152, 85, 0.1);
+       border-color: #027a48;
+       
+       .ant-alert-message {
+         color: #6ce9a6;
+       }
+     }
+     
+     &-success {
+       background: rgba(3, 152, 85, 0.1);
+       border-color: #027a48;
+       
+       .ant-alert-message {
+         color: #6ce9a6;
+       }
+     }
+     
+     &-warning {
+       background: rgba(220, 104, 3, 0.1);
+       border-color: #dc6803;
+       
+       .ant-alert-message {
+         color: #fdb022;
+       }
+     }
+     
+     &-error {
+       background: rgba(217, 45, 32, 0.1);
+       border-color: #d92d20;
+       
+       .ant-alert-message {
+         color: #fda29b;
+       }
+     }
+   }
+   
+   // Badge
+   .ant-badge-count {
+     background: #039855;
+   }
+   
+   // Tag
+   .ant-tag {
+     background: #252b37;
+     border-color: #414651;
+     color: #fafafa;
+   }
+   
+   // Checkbox & Radio
+   .ant-checkbox-inner,
+   .ant-radio-inner {
+     background: #252b37;
+     border-color: #414651;
+   }
+   
+   .ant-checkbox-checked .ant-checkbox-inner {
+     background: #039855;
+     border-color: #039855;
+   }
+   
+   .ant-radio-checked .ant-radio-inner {
+     border-color: #039855;
+     
+     &::after {
+       background: #039855;
+     }
+   }
+   
+   // Switch
+   .ant-switch {
+     background: #535862;
+     
+     &-checked {
+       background: #039855;
+     }
+   }
+   
+   // Pagination
+   .ant-pagination {
+     .ant-pagination-item {
+       background: #252b37;
+       border-color: #414651;
+       
+       a {
+         color: #fafafa;
+       }
+       
+       &:hover {
+         border-color: #039855;
+         
+         a {
+           color: #039855;
+         }
+       }
+       
+       &-active {
+         background: #039855;
+         border-color: #039855;
+         
+         a {
+           color: #ffffff;
+         }
+       }
+     }
+     
+     .ant-pagination-prev,
+     .ant-pagination-next {
+       .ant-pagination-item-link {
+         background: #252b37;
+         border-color: #414651;
+         color: #fafafa;
+         
+         &:hover {
+           border-color: #039855;
+           color: #039855;
+         }
+       }
+     }
+   }
+   
+   // Typography
+   .ant-typography {
+     color: #fafafa;
+   }
+   
+   // Links
+   a,
+   a.ant-typography {
+     color: #6ce9a6;
+     
+     &:hover {
+       color: #32d583;
+     }
+   }
+   
+   // Page container
+   .page-container {
+     background: #0a0d12;
+   }
+   
+   // Entity details container
+   .entity-details-container {
+     background: #0a0d12;
+   }
+   
+   // Breadcrumb
+   .breadcrumb-item .link-title {
+     color: #a4a7ae !important;
+     
+     &:hover {
+       color: #039855 !important;
+     }
+   }
+   
+   // Code blocks
+   .CodeMirror {
+     background: #252b37;
+     color: #fafafa;
+     border-color: #414651;
+   }
+   
+   // Custom scrollbar for dark mode
+   ::-webkit-scrollbar {
+     width: 8px;
+     height: 8px;
+   }
+   
+   ::-webkit-scrollbar-track {
+     background: #181d27;
+   }
+   
+   ::-webkit-scrollbar-thumb {
+     background: #414651;
+     border-radius: 4px;
+     
+     &:hover {
+       background: #535862;
+     }
+   }
+   
+   // Left Sidebar
+   .app-container > .ant-layout-sider {
+     background: #0a0d12;
+     border-right: 1px solid #414651;
+   }
+   
+   .left-sidebar-layout {
+     background: #0a0d12;
+     
+     .menu-container {
+       background: #0a0d12;
+     }
+   }
+   
+   .left-sidebar-menu {
+     background: #0a0d12;
+     
+     .ant-menu-item,
+     .ant-menu-submenu {
+       color: #d5d7da;
+     }
+     
+     .ant-menu-item {
+       &:hover:not(.ant-menu-item-selected) {
+         background: #252b37;
+         color: #fafafa;
+       }
+       
+       &.ant-menu-item-selected {
+         background: #039855;
+         color: #ffffff;
+       }
+     }
+     
+     .ant-menu-submenu-title {
+       color: #d5d7da;
+       
+       &:hover {
+         background: #252b37;
+         color: #fafafa;
+       }
+     }
+     
+     .ant-menu-submenu.ant-menu-submenu-open {
+       border-color: #039855;
+       background: #181d27;
+       
+       .ant-menu-submenu-title {
+         background: #027a48;
+         color: #ffffff;
+       }
+       
+       .ant-menu.ant-menu-sub {
+         background: #181d27;
+         
+         .ant-menu-item {
+           color: #d5d7da;
+           
+           &:hover {
+             background: #252b37;
+             color: #fafafa;
+           }
+           
+           &.ant-menu-item-selected {
+             background: #039855;
+             color: #ffffff;
+           }
+         }
+       }
+     }
+   }
+   
+   .logo-container {
+     background: #0a0d12;
+   }
+   
+   // Layout Content - Main content area
+   .ant-layout-content {
+     background: #0a0d12;
+     color: #fafafa;
+   }
+   
+   // Layout Header - Top navigation bar
+   .ant-layout-header {
+     background: #181d27;
+     border-bottom: 1px solid #414651;
+     color: #fafafa;
+   }
+   
+   // Page Alert
+   #page-alert {
+     background: #181d27;
+     border-color: #414651;
+     color: #fafafa;
+   }
+   
+   // Ant Design Row
+   .ant-row {
+     background: transparent;
+     color: #fafafa;
+   }
+   
+   // Ant Tabs Navigation
+   .ant-tabs-nav {
+     background: #181d27;
+     border-color: #414651;
+   }
+   
+   // Test Suite List Header
+   .test-suite-list-header {
+     background: #181d27;
+     border-color: #414651;
+     color: #fafafa;
+   }
+   
+   // Test Suite List Container
+   .test-suite-list-container {
+     background: #181d27;
+     border-color: #414651;
+     color: #fafafa;
+   }
+   
+   // Search Input
+   .search-input {
+     background: #252b37;
+     border-color: #414651;
+     color: #fafafa;
+     
+     &:hover,
+     &:focus {
+       background: #252b37;
+       border-color: #039855;
+     }
+     
+     &::placeholder {
+       color: #717680;
+     }
+   }
+   
+   // Search Container
+   .search-container {
+     background: #181d27;
+     border-color: #414651;
+     color: #fafafa;
+   }
+   
+   // Ant Tree List
+   .ant-tree-list {
+     background: #181d27;
+     color: #fafafa;
+   }
+   
+   // Ant Tree
+   .ant-tree.ant-tree-block-node {
+     background: #181d27;
+     color: #fafafa;
+     
+     .ant-tree-node-content-wrapper {
+       color: #fafafa;
+       
+       &:hover {
+         background: #252b37;
+       }
+     }
+     
+     .ant-tree-node-selected {
+       background: #039855 !important;
+       
+       .ant-tree-node-content-wrapper {
+         background: transparent;
+         color: #ffffff;
+       }
+     }
+     
+     .ant-tree-switcher {
+       color: #a4a7ae;
+     }
+     
+     .ant-tree-indent-unit {
+       border-left: 1px solid #414651;
+     }
+   }
+   
+   // Explore Tree
+   .explore-tree {
+     background: #181d27;
+     border-color: #414651;
+     color: #fafafa;
+     
+     .ant-tree-treenode {
+       color: #fafafa;
+       
+       &:hover {
+         background: #252b37;
+       }
+     }
+     
+     .ant-tree-treenode-selected {
+       background: #039855;
+       color: #ffffff;
+     }
+   }
+   
+   // Ant Card Head Wrapper
+   .ant-card-head-wrapper {
+     background: #181d27;
+     border-color: #414651;
+     color: #fafafa;
+     
+     .ant-card-head-title {
+       color: #fafafa;
+     }
+     
+     .ant-card-extra {
+       color: #d5d7da;
+     }
+   }
+   
+   // Ant Tabs Navigation (more specific)
+   .ant-tabs-nav-wrap {
+     background: transparent;
+   }
+   
+   .ant-tabs-nav-list {
+     background: transparent;
+   }
+   
+   .ant-tabs-tab {
+     color: #a4a7ae;
+     
+     &:hover {
+       color: #d5d7da;
+     }
+     
+     &.ant-tabs-tab-active {
+       .ant-tabs-tab-btn {
+         color: #039855;
+       }
+     }
+   }
+   
+   // Data Quality Components
+   .data-quality-tab-container {
+     background: #181d27;
+     border-color: #414651;
+     color: #fafafa;
+   }
+   
+   .data-quality-table-header {
+     background: #252b37;
+     border-color: #414651;
+     color: #fafafa;
+   }
+   
+   // Ant Row with Middle Alignment
+   .ant-row.ant-row-middle {
+     background: transparent;
+     color: #fafafa;
+   }
+   
+   // Ant Col
+   .ant-col {
+     color: #fafafa;
+   }
+   
+   // Page Header Container
+   .page-header-container {
+     background: #181d27;
+     border-color: #414651;
+     color: #fafafa;
+   }
+   
+   // Ant Typography
+   .ant-typography {
+     color: #fafafa;
+     
+     &.heading {
+       color: #fafafa;
+       font-weight: 600;
+     }
+     
+     &.sub-heading {
+       color: #d5d7da;
+     }
+   }
+   
+   // Ant Input (general - already covered but adding for specificity)
+   input.ant-input {
+     background: #252b37;
+     border-color: #414651;
+     color: #fafafa;
+     
+     &:hover {
+       border-color: #535862;
+     }
+     
+     &:focus,
+     &:focus-within {
+       background: #252b37;
+       border-color: #039855;
+       box-shadow: 0 0 0 2px rgba(3, 152, 85, 0.1);
+     }
+     
+     &::placeholder {
+       color: #717680;
+     }
+     
+     &:disabled {
+       background: #181d27;
+       color: #717680;
+       border-color: #414651;
+     }
+   }
+   
+   // Layout wrapper
+   .ant-layout {
+     background: #0a0d12;
+   }
+   
+   // App container layout
+   .app-container {
+     background: #0a0d12;
+     
+     .ant-layout {
+       background: #0a0d12;
+     }
+   }
+ }
+ 
