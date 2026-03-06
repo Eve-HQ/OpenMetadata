@@ -44,6 +44,9 @@ const SortingDropDown: React.FC<SortingDropdownProps> = ({
     <Dropdown
       className="self-end m-r-xs cursor-pointer sorting-dropdown"
       data-testid="dropdown"
+      getPopupContainer={(trigger) =>
+        trigger?.closest('.openmetadata-scope') || document.body
+      }
       menu={{
         items,
       }}

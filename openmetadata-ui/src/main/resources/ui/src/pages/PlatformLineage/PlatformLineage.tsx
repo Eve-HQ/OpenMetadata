@@ -241,7 +241,7 @@ const PlatformLineage = () => {
           onFocus={() => !defaultValue && debouncedSearch('')}
           onSearch={debouncedSearch}
         />
-        <div className="d-flex gap-2">
+        <div className="d-flex gap-2 lineage-header-actions">
           <Tooltip
             arrow
             placement="top"

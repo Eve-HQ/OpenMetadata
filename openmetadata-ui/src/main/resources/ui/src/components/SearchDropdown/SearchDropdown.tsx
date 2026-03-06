@@ -327,6 +327,9 @@ const SearchDropdown: FC<SearchDropdownProps> = ({
       destroyPopupOnHide
       data-testid={searchKey}
       dropdownRender={dropdownCardComponent}
+      getPopupContainer={(trigger) =>
+        trigger?.closest('.openmetadata-scope') || document.body
+      }
       key={searchKey}
       menu={{ items: menuOptions, onClick: handleMenuItemClick }}
       open={isDropDownOpen}

@@ -258,7 +258,7 @@ const DataProductListPage = () => {
   ]);
 
   return (
-    <>
+    <Box className="data-product-list-page">
       {breadcrumbs}
       {pageHeader}
 
@@ -271,7 +271,7 @@ const DataProductListPage = () => {
             px: 6,
             py: 4,
             borderBottom: `1px solid`,
-            borderColor: theme.palette.allShades?.gray?.[200],
+            borderColor: theme.palette.divider,
           }}>
           <Box sx={{ display: 'flex', gap: 5, alignItems: 'center' }}>
             {titleAndCount}
@@ -287,7 +287,7 @@ const DataProductListPage = () => {
       </TableContainer>
       {deleteModal}
       {formDrawer}
-    </>
+    </Box>
   );
 };
 

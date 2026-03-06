@@ -479,8 +479,10 @@ const NavBar = () => {
                   onCancel={() => setIsDomainDropdownOpen(false)}
                   onUpdate={handleDomainChange}>
                   <Button
+                  style={{display: 'flex'}}
+
                     className={classNames(
-                      'domain-nav-btn flex-center gap-2 p-x-sm p-y-xs font-medium m-l-md',
+                      ' flex domain-nav-btn flex-center gap-2 p-x-sm p-y-xs font-medium m-l-md',
                       {
                         'domain-active': activeDomain !== DEFAULT_DOMAIN_VALUE,
                       }
@@ -495,7 +497,7 @@ const NavBar = () => {
                       name="domain"
                       width={20}
                     />
-                    <Typography.Text ellipsis className="domain-text">
+                    <Typography.Text ellipsis className="domain-text m-0">
                       {activeDomainEntityRef
                         ? getEntityName(activeDomainEntityRef)
                         : activeDomain}
@@ -507,7 +509,7 @@ const NavBar = () => {
             )}
           </div>
 
-          <div className="flex-center gap-5 nav-bar-side-items">
+          {/* <div className="flex-center gap-5 nav-bar-side-items">
             <Dropdown
               className="cursor-pointer"
               menu={{
@@ -574,7 +576,7 @@ const NavBar = () => {
               />
             </Dropdown>
             <UserProfileIcon />
-          </div>
+          </div> */}
         </div>
       </Header>
       {showVersionMissMatchAlert && (

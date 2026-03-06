@@ -129,6 +129,10 @@ export const useApplicationStore = create<ApplicationStore>()((set, get) => ({
     set({ isApplicationLoading: loading });
   },
 
+  setIsAuthenticating: (authenticating: boolean) => {
+    set({ isAuthenticating: authenticating });
+  },
+
   updateCurrentUser: (user) => {
     const { personas, defaultPersona } = user;
     const { selectedPersona } = get();

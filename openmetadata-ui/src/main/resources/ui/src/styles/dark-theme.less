@@ -13,8 +13,8 @@
 
  @import (reference) './variables.less';
 
- // Dark Mode Theme Variables and Styles
- body.dark-mode {
+ // Dark Mode - uses &.dark-mode so when scoped becomes .openmetadata-scope.dark-mode
+ &.dark-mode {
    // Background colors
    background: #0a0d12;
    color: #fafafa;
@@ -51,10 +51,12 @@
      background-color: #252b37;
    }
    
-   // Border colors
+   // Border colors - ensure all border utilities use dark theme
    .global-border,
    .border-main,
-   .border-gray {
+   .border-gray,
+   .border-default,
+   .border {
      border-color: #414651;
    }
    
@@ -168,6 +170,273 @@
        }
      }
    }
+
+   // Incident Manager page - ensure filter selects and form labels match dark theme
+   .incident-manager-filters {
+     .ant-select .ant-select-selector {
+       background: #252b37 !important;
+       border-color: #414651 !important;
+       color: #fafafa !important;
+     }
+
+    .ant-select-selection-search-input {
+      background: transparent !important;
+      color: #fafafa !important;
+    }
+
+    .ant-select-selection-placeholder {
+      background: transparent !important;
+      color: #717680 !important;
+    }
+
+     .ant-form-item-label > label,
+     .form-label-title {
+       color: #d5d7da !important;
+     }
+   }
+
+   // Border default - used by empty states, placeholders, tables
+   .border-default {
+     border-color: #414651 !important;
+   }
+
+   // Table container - Observability Alerts, and other list pages
+   .table-container {
+     background-color: #181d27 !important;
+     border: 1px solid #414651 !important;
+
+     .ant-table-wrapper {
+       background: transparent;
+     }
+
+     .ant-table-placeholder {
+       background: #181d27 !important;
+       border-color: #414651 !important;
+       color: #a4a7ae;
+     }
+
+     .ant-table-thead > tr > th,
+     .ant-table-tbody > tr > td {
+       border-color: #414651 !important;
+     }
+
+     .pagination-container {
+       border-top: 1px solid #414651 !important;
+     }
+
+     .custom-column-dropdown-menu {
+       color: #a4a7ae;
+
+       .ant-dropdown-menu {
+         background-color: #252b37 !important;
+         border-color: #414651 !important;
+       }
+
+       .ant-dropdown-menu-item:hover {
+         background-color: #414651 !important;
+         color: #fafafa;
+       }
+     }
+   }
+
+   // Page layout - main content area borders
+   .page-layout-v1-center {
+     border-color: #414651;
+   }
+
+   .page-layout-v1-left-panel {
+     border-color: #414651;
+   }
+
+   // Data Insights page - Organization Health cards, KPI cards, chart cards
+   .summary-card {
+     background: #181d27 !important;
+     border-color: #414651 !important;
+     color: #fafafa;
+
+     .summary-card-title {
+       color: #a4a7ae;
+     }
+
+     .summary-card-description {
+       color: #fafafa;
+     }
+   }
+
+   .summary-card-item {
+     background: #181d27 !important;
+     border-color: #414651 !important;
+
+     &:hover {
+       background: #252b37 !important;
+     }
+   }
+
+   .data-insight-card {
+     background: #181d27 !important;
+     border-color: #414651 !important;
+
+     .ant-card-head {
+       border-color: #414651;
+       color: #fafafa;
+     }
+
+     .ant-card-body {
+       color: #fafafa;
+     }
+   }
+
+   .data-insight-left-panel.ant-menu-root.ant-menu-inline {
+     background: #181d27 !important;
+     border-color: #414651;
+
+     .ant-menu-item-group:not(:first-child) {
+       border-top-color: #414651;
+     }
+
+     .ant-menu-item-group-title {
+       color: #a4a7ae;
+     }
+
+     .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+       border-right-color: #414651;
+     }
+   }
+
+   .ant-typography.data-insight-label-text {
+     color: #a4a7ae;
+   }
+
+   .entity-summary-container:hover {
+     background: #252b37 !important;
+   }
+
+   .custom-data-insight-legend .custom-data-insight-legend-item:hover {
+     background: #252b37 !important;
+   }
+
+   // Data Insights - main content Card and all chart/KPI cards
+   .content-resizable-panel-container .ant-card,
+   [data-testid="data-insight-container"] .ant-card {
+     background: #181d27 !important;
+     border: 1px solid #414651 !important;
+     color: #fafafa;
+   }
+
+  // Data Insights - ErrorPlaceHolder empty states (No KPIs, Total Data Assets)
+  [data-testid="data-insight-container"] .border-default,
+  [data-testid="data-insight-container"] .bg-white,
+  [data-testid="summary-card"] .summary-card,
+  [data-testid="summary-card"] .summary-card-item {
+    background: #181d27 !important;
+    border-color: #414651 !important;
+    color: #fafafa;
+  }
+
+   // Domains page - Paper cards, search, filters, empty state
+   .domain-list-page {
+     .MuiPaper-root {
+       background: #181d27 !important;
+       border: 1px solid #535862 !important;
+       border-color: #535862 !important;
+       color: #fafafa;
+     }
+
+     .MuiOutlinedInput-root {
+       background: #252b37 !important;
+       border: 1px solid #535862 !important;
+       border-color: #535862 !important;
+
+       &:hover,
+       &.Mui-focused {
+         border-color: #039855 !important;
+       }
+
+       .MuiOutlinedInput-input {
+         color: #fafafa !important;
+       }
+
+       .MuiInputAdornment-root {
+         color: #a4a7ae;
+       }
+     }
+
+     .MuiChip-root {
+       background: #252b37 !important;
+       border: 1px solid #535862 !important;
+       border-color: #535862 !important;
+       color: #fafafa;
+     }
+
+    .border-default,
+    .border-none,
+    .bg-white,
+    [data-testid="no-data-placeholder"] {
+      background: #181d27 !important;
+      border: 1px solid #535862 !important;
+      border-color: #535862 !important;
+      color: #fafafa;
+    }
+
+    .ant-select-selector {
+      background: #252b37 !important;
+      border: 1px solid #535862 !important;
+      border-color: #535862 !important;
+      color: #fafafa !important;
+    }
+  }
+
+  .data-product-list-page {
+    .MuiPaper-root {
+      background: #181d27 !important;
+      border: 1px solid #535862 !important;
+      border-color: #535862 !important;
+      color: #fafafa;
+    }
+
+    .MuiOutlinedInput-root {
+      background: #252b37 !important;
+      border: 1px solid #535862 !important;
+      border-color: #535862 !important;
+
+      &:hover,
+      &.Mui-focused {
+        border-color: #039855 !important;
+      }
+
+      .MuiOutlinedInput-input {
+        color: #fafafa !important;
+      }
+
+      .MuiInputAdornment-root {
+        color: #a4a7ae;
+      }
+    }
+
+    .MuiChip-root {
+      background: #252b37 !important;
+      border: 1px solid #535862 !important;
+      border-color: #535862 !important;
+      color: #fafafa;
+    }
+
+    .border-default,
+    .bg-white,
+    .border-none,
+    [data-testid="no-data-placeholder"] {
+      background: #181d27 !important;
+      border: 1px solid #535862 !important;
+      border-color: #535862 !important;
+      color: #fafafa;
+    }
+
+    .ant-select-selector {
+      background: #252b37 !important;
+      border: 1px solid #535862 !important;
+      border-color: #535862 !important;
+      color: #fafafa !important;
+    }
+  }
    
    // Modals
    .ant-modal-content {
@@ -207,6 +476,25 @@
        background: #414651;
        border-color: #535862;
        color: #fafafa;
+     }
+   }
+
+   // Edit icon buttons (bordered - pencil icons)
+   .ant-btn.bordered,
+   .ant-btn.ant-btn-icon-only.bordered,
+   .ant-tooltip-disabled-compatible-wrapper.bordered .ant-btn {
+     background: #252b37 !important;
+     border-color: #414651 !important;
+     color: #a4a7ae !important;
+
+     &:hover {
+       background: #414651 !important;
+       border-color: #535862 !important;
+       color: #6ce9a6 !important;
+     }
+
+     svg {
+       color: inherit !important;
      }
    }
    
@@ -511,9 +799,10 @@
      }
    }
    
-   // Left Sidebar
+   // Left Sidebar - borders for separator between sidebars and content
    .app-container > .ant-layout-sider {
      background: #0a0d12;
+     border-left: 1px solid #414651;
      border-right: 1px solid #414651;
    }
    
@@ -598,6 +887,661 @@
      background: #181d27;
      border-bottom: 1px solid #414651;
      color: #fafafa;
+   }
+
+   // Navbar search container & global search - fix light backgrounds
+   .navbar-container .search-container,
+   .search-container {
+     background: #252b37 !important;
+     border-color: #414651 !important;
+
+     .ant-input,
+     .ant-input-affix-wrapper,
+     input,
+     .appbar-search {
+       background: transparent !important;
+       border: none !important;
+       color: #fafafa !important;
+
+       &::placeholder {
+         color: #717680;
+       }
+     }
+
+     .global-search-select .ant-select-selector {
+       background: transparent !important;
+       border: none !important;
+       color: #fafafa !important;
+     }
+
+     .ant-select-arrow {
+       color: #a4a7ae;
+     }
+
+     .ant-divider-vertical {
+       border-color: #414651;
+     }
+   }
+
+   // Global search popover/suggestions
+   .global-search-overlay .ant-popover-inner {
+     background: #252b37;
+   }
+
+   // Global search "All" dropdown (Tables, Dashboards, etc.) - dark theme
+   .global-search-select-menu.ant-select-dropdown {
+     background: #252b37 !important;
+
+     .ant-select-item {
+       color: #fafafa;
+
+       &:hover {
+         background: #414651;
+       }
+
+       &-option-selected {
+         background: rgba(3, 152, 85, 0.2);
+         color: #6ce9a6;
+       }
+     }
+   }
+
+   // Navbar domain button (All Domains) - compact, proper dark styling
+   .ant-btn.domain-nav-btn {
+     background: #252b37 !important;
+     border-color: #414651 !important;
+     color: #fafafa !important;
+     min-width: 100px;
+     max-width: 180px;
+
+     .domain-text {
+       color: #fafafa !important;
+       max-width: 120px;
+       overflow: hidden;
+       text-overflow: ellipsis;
+       white-space: nowrap;
+     }
+
+     &:hover,
+     &:focus {
+       background: #414651 !important;
+       border-color: #039855 !important;
+       color: #fafafa !important;
+     }
+
+     &.domain-active {
+       color: #6ce9a6 !important;
+       border-color: #039855 !important;
+       background: rgba(3, 152, 85, 0.15) !important;
+     }
+   }
+
+   // Primary buttons - green (Explore Assets, etc.)
+   .ant-btn-primary {
+     background: #039855 !important;
+     border-color: #039855 !important;
+     color: #ffffff !important;
+
+     &:hover,
+     &:focus {
+       background: #027a48 !important;
+       border-color: #027a48 !important;
+       color: #ffffff !important;
+     }
+   }
+
+   // Landing page header - search & domain selector
+   .customise-landing-page-header {
+     .search-input,
+     .search-input .ant-input,
+     .search-input .ant-input-affix-wrapper {
+       background: #252b37 !important;
+       border-color: #414651 !important;
+       color: #fafafa !important;
+     }
+
+     .domain-selector,
+     .domain-selector.bg-white {
+       background: #252b37 !important;
+       border: 1px solid #414651 !important;
+
+       .domain-icon,
+       .dropdown-icon {
+         color: #a4a7ae;
+       }
+
+       .domain-title {
+         color: #fafafa !important;
+       }
+
+       &:hover:not(.disabled) {
+         background: #414651 !important;
+       }
+     }
+   }
+
+   // My Data widget - Explore Assets link color
+   .view-more-text {
+     color: #6ce9a6 !important;
+
+     &:hover {
+       color: #32d583 !important;
+     }
+   }
+
+   // Widget header dropdown (e.g. Last 7 days) - green accent
+   .widget-header-menu {
+     .ant-dropdown-menu-item:hover,
+     .ant-dropdown-menu-item-active {
+       color: #6ce9a6 !important;
+       background-color: rgba(3, 152, 85, 0.15) !important;
+     }
+   }
+
+   // Navbar buttons (language, notifications, help) - ensure text visible
+   .nav-bar-side-items .ant-btn {
+     color: #d5d7da;
+
+     &:hover {
+       color: #fafafa;
+     }
+   }
+
+   // Explore page - filters, cards, main content
+   .explore-page {
+     .quick-filters-container .ant-card,
+     .explore-main-card {
+       background: #181d27 !important;
+       border-color: #414651 !important;
+       color: #fafafa;
+     }
+
+     .explore-main-card .ant-card-body {
+       background: #181d27 !important;
+       color: #fafafa;
+     }
+
+     .quick-filter-dropdown-trigger-btn {
+       background: #252b37 !important;
+       border-color: #414651 !important;
+       color: #fafafa !important;
+
+       &:hover {
+         background: #414651 !important;
+         border-color: #535862 !important;
+         color: #fafafa !important;
+       }
+
+       .filters-label {
+         color: #d5d7da !important;
+       }
+
+       &.active .filters-label {
+         color: #039855 !important;
+       }
+     }
+
+     .sorting-dropdown-container {
+       .ant-typography,
+       svg {
+         color: #d5d7da !important;
+       }
+     }
+
+     .filters-label {
+       color: #d5d7da !important;
+     }
+
+     .ant-switch {
+       &.ant-switch-checked {
+         background: #039855 !important;
+       }
+
+       &:not(.ant-switch-checked) {
+         background: #414651 !important;
+       }
+     }
+
+     .explore-right-panel {
+       background: transparent;
+     }
+   }
+
+   // Entity Summary Panel (Overview sidebar)
+   .entity-summary-panel-container {
+     background: #181d27 !important;
+
+     &.explore,
+     &.lineage,
+     &.glossary-term-assets-tab {
+       background: #181d27 !important;
+     }
+
+     // Right vertical nav (Overview, Schema, Lineage tabs)
+     .entity-right-panel-vertical-nav {
+       background: #252b37 !important;
+       border-color: #414651 !important;
+
+       .vertical-nav-menu .ant-menu-item {
+         color: #a4a7ae;
+
+         .ant-menu-title-content {
+           color: #a4a7ae;
+         }
+
+         &.ant-menu-item-selected {
+           color: #039855;
+
+           .ant-menu-item-icon,
+           .ant-menu-title-content {
+             color: #039855;
+           }
+         }
+
+         &:hover:not(.ant-menu-item-selected) {
+           color: #6ce9a6;
+
+           .ant-menu-item-icon,
+           .ant-menu-title-content {
+             color: #6ce9a6;
+           }
+         }
+       }
+     }
+
+     .summary-panel-container {
+       border-color: #414651 !important;
+       background: #181d27 !important;
+
+       .ant-card {
+         background: #181d27 !important;
+         border-color: #414651;
+       }
+
+       .content-area {
+         background: #181d27 !important;
+         color: #fafafa;
+       }
+
+       .content-area.ant-card {
+         background: #181d27 !important;
+       }
+
+       // EntityTitleSection - "Bronze" header (MUI Box overrides)
+       .title-section {
+         background: #181d27 !important;
+
+         // Inner container (entity name box)
+         > div {
+           background: #252b37 !important;
+         }
+
+         a,
+         .entity-title-link {
+           color: #6ce9a6 !important;
+         }
+       }
+
+       .title-container {
+         background: #252b37 !important;
+         color: #fafafa;
+
+         .entity-title-link {
+           color: #6ce9a6 !important;
+         }
+       }
+
+       .summary-panel-card {
+         background: #252b37 !important;
+         border-color: #414651 !important;
+         color: #fafafa;
+       }
+
+       .summary-panel-section-title {
+         color: #fafafa !important;
+       }
+
+       .summary-panel-title {
+         color: #6ce9a6 !important;
+       }
+
+       .custom-properties-list .custom-property-item {
+         background-image: linear-gradient(
+           to right,
+           #414651 66%,
+           #181d27 0%
+         ) !important;
+
+         .property-name {
+           color: #d5d7da !important;
+         }
+
+         .property-value {
+           color: #a4a7ae !important;
+         }
+       }
+
+       .custom-property-table {
+         border-color: #414651;
+         background: #181d27;
+
+         thead,
+         th {
+           background: #252b37 !important;
+           color: #a4a7ae !important;
+           border-color: #414651 !important;
+         }
+
+         .ant-table-thead > tr > th {
+           background: #252b37 !important;
+           color: #d5d7da !important;
+         }
+       }
+     }
+
+     .drawer-summary-panel-container .data-quality-tabs .ant-tabs-tabpane {
+       background: #181d27 !important;
+     }
+
+     // Section cards (Owners, Domains, etc.)
+     .summary-panel-card,
+     .ant-card.summary-panel-card {
+       background: #252b37 !important;
+       border-color: #414651 !important;
+     }
+
+     // Section with edit (Description, Owners, etc.)
+     .section-with-edit {
+       border-color: #414651;
+       color: #fafafa;
+
+       .section-title {
+         color: #fafafa !important;
+         font-size: 14px !important;
+       }
+
+       .section-content {
+         color: #d5d7da !important;
+         font-size: 14px !important;
+         line-height: 1.5;
+       }
+     }
+
+     // Domains section
+     .domains-section {
+       border-color: #414651;
+
+       .domains-title {
+         color: #fafafa !important;
+         font-size: 14px !important;
+       }
+
+       .domains-content .no-data-placeholder {
+         color: #d5d7da !important;
+         font-size: 14px !important;
+       }
+
+       .domain-name {
+         color: #d5d7da !important;
+         font-size: 14px !important;
+       }
+     }
+
+     // Tier section
+     .tier-section {
+       border-color: #414651;
+
+       .tier-title {
+         color: #fafafa !important;
+         font-size: 14px !important;
+       }
+
+       .tier-content .no-data-placeholder {
+         color: #d5d7da !important;
+         font-size: 14px !important;
+       }
+     }
+
+     // Owners section (standalone, not SectionWithEdit)
+     .owners-section {
+       border-color: #414651;
+
+       .owners-title {
+         color: #fafafa !important;
+         font-size: 14px !important;
+       }
+
+       .owners-content .no-data-placeholder,
+       .no-data-placeholder {
+         color: #d5d7da !important;
+         font-size: 14px !important;
+       }
+     }
+
+     // Glossary terms, Tags, Data products sections
+     .glossary-terms-section,
+     .tags-section,
+     .data-products-section {
+       .no-data-placeholder {
+         color: #d5d7da !important;
+         font-size: 14px !important;
+       }
+     }
+
+     // Description section (uses description-header/description-content)
+     .description-section {
+       .description-header .description-title {
+         color: #fafafa !important;
+         font-size: 14px !important;
+       }
+
+       .description-content,
+       .description-content .no-data-placeholder,
+       .markdown-parser {
+         color: #d5d7da !important;
+         font-size: 14px !important;
+       }
+
+       .rich-text-editor-container .markdown-parser {
+         color: #d5d7da !important;
+       }
+     }
+
+     // Catch-all for all placeholder/value text in summary panel
+     .no-data-placeholder {
+       color: #d5d7da !important;
+       font-size: 14px !important;
+     }
+
+     // Domain/select inputs in summary panel
+     .ant-select,
+     .ant-select-selector,
+     .ant-input {
+       background: #252b37 !important;
+       border-color: #414651 !important;
+       color: #fafafa !important;
+     }
+   }
+
+   // Explore search cards (Data asset cards)
+   .explore-search-card {
+     background: #181d27 !important;
+     border-color: #414651 !important;
+     color: #fafafa;
+
+     .entity-summary-details .no-owner {
+       color: #a4a7ae;
+     }
+
+     &.highlight-card {
+       background: rgba(3, 152, 85, 0.15) !important;
+       border-left-color: #039855 !important;
+     }
+   }
+
+   .score-container {
+     background: rgba(3, 152, 85, 0.2) !important;
+
+     .score {
+       color: #6ce9a6 !important;
+     }
+   }
+
+   // Filter dropdown overlay (SearchDropdown custom-dropdown-render)
+   .ant-dropdown .custom-dropdown-render,
+   .custom-dropdown-render {
+     .ant-card {
+       background: #252b37 !important;
+       border-color: #414651 !important;
+       color: #fafafa;
+
+       .ant-input {
+         background: #181d27 !important;
+         border-color: #414651 !important;
+         color: #fafafa !important;
+       }
+
+       .ant-btn-link {
+         color: #6ce9a6 !important;
+       }
+
+       .ant-checkbox-wrapper {
+         color: #fafafa;
+       }
+     }
+   }
+
+   // Platform lineage page - search select in header
+   .lineage-card .ant-card-head-title .ant-select {
+     .ant-select-selector {
+       background: #252b37 !important;
+       border-color: #414651 !important;
+       color: #fafafa !important;
+     }
+   }
+
+   // Lineage page - Service Lineage header icons (download, settings, fullscreen)
+   .lineage-header-actions,
+   .lineage-card .ant-card-head {
+     .MuiIconButton-root {
+       background: #252b37 !important;
+       border-color: #414651 !important;
+       color: #a4a7ae !important;
+
+       svg {
+         color: #a4a7ae !important;
+         width: 20px;
+         height: 20px;
+       }
+
+       &:hover {
+         background: #414651 !important;
+         border-color: #535862 !important;
+         color: #6ce9a6 !important;
+
+         svg {
+           color: #6ce9a6 !important;
+         }
+       }
+     }
+   }
+
+   .lineage-card .ant-card-head {
+     background: #181d27 !important;
+     border-color: #414651 !important;
+
+     .ant-card-head-title {
+       color: #fafafa;
+     }
+   }
+
+   // Lineage bottom-right panel (zoom, fit, fullscreen, etc.)
+   .lineage-container .react-flow__panel {
+     .MuiToggleButton-root {
+       background: #252b37 !important;
+       border-color: #414651 !important;
+       color: #a4a7ae !important;
+
+       svg {
+         color: #a4a7ae !important;
+       }
+
+       &:hover {
+         background: #414651 !important;
+         color: #6ce9a6 !important;
+
+         svg {
+           color: #6ce9a6 !important;
+         }
+       }
+
+       &.Mui-selected {
+         background: rgba(3, 152, 85, 0.2) !important;
+         border-color: #039855 !important;
+         color: #6ce9a6 !important;
+
+         svg {
+           color: #6ce9a6 !important;
+         }
+       }
+     }
+   }
+
+   // Resizable panels - left panel (Data Assets menu)
+   .content-resizable-panel-container,
+   .content-height-with-resizable-panel {
+     background: #181d27 !important;
+     border-color: #414651;
+     color: #fafafa;
+   }
+
+   .left-container.ant-menu {
+     background: #181d27 !important;
+   }
+
+   // Domain selector popover (All Domains dropdown) - dark theme & compact
+   .domain-select-popover {
+     .ant-popover-inner {
+       background: #252b37 !important;
+       border: 1px solid #414651 !important;
+       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+     }
+
+     .ant-popover-inner-content {
+       background: #252b37 !important;
+       color: #fafafa;
+     }
+
+     .ant-input-search,
+     .ant-input,
+     .ant-input-search .ant-input {
+       background: #181d27 !important;
+       border-color: #414651 !important;
+       color: #fafafa !important;
+     }
+
+     .ant-empty {
+      padding: 16px;
+     }
+
+     .ant-empty-image {
+       height: 40px;
+       opacity: 0.6;
+     }
+
+     .ant-empty-description {
+       color: #a4a7ae !important;
+       font-size: 13px;
+     }
+
+     .ant-tree {
+       background: transparent;
+       color: #fafafa;
+     }
+
+     .ant-divider {
+       border-color: #414651;
+     }
    }
    
    // Page Alert

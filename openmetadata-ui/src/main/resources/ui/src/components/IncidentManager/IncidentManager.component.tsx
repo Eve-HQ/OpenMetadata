@@ -696,12 +696,12 @@ const IncidentManager = ({
   return (
     <Stack
       sx={{
-        border: `1px solid ${theme.palette.grey[200]}`,
+        border: `1px solid ${theme.palette.divider}`,
         borderRadius: '10px',
-        backgroundColor: theme.palette.common.white,
+        backgroundColor: theme.palette.background.paper,
       }}>
       <Box
-        className="new-form-style"
+        className="new-form-style incident-manager-filters"
         sx={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -719,8 +719,11 @@ const IncidentManager = ({
             showArrow
             showSearch
             api={searchTestCases}
-            className="w-min-20"
+            className="ant-select-custom w-min-20"
             data-testid="test-case-select"
+            getPopupContainer={(trigger) =>
+              trigger?.closest('.openmetadata-scope') || document.body
+            }
             placeholder={t('label.test-case')}
             suffixIcon={undefined}
             value={filters.testCaseFQN}
@@ -730,6 +733,9 @@ const IncidentManager = ({
             <Form.Item className="m-b-0" label={t('label.assignee')}>
               <Assignees
                 allowClear
+                getPopupContainer={(trigger) =>
+                  trigger?.closest('.openmetadata-scope') || document.body
+                }
                 isSingleSelect
                 showArrow
                 className="w-min-10"
@@ -743,8 +749,11 @@ const IncidentManager = ({
             <Form.Item className="m-b-0" label={t('label.status')}>
               <Select
                 allowClear
-                className="w-min-10"
+                className="ant-select-custom w-min-10"
                 data-testid="status-select"
+                getPopupContainer={(trigger) =>
+                  trigger?.closest('.openmetadata-scope') || document.body
+                }
                 placeholder={t('label.status')}
                 value={filters.testCaseResolutionStatusType}
                 onChange={(value) =>

@@ -273,6 +273,7 @@ const DomainListPage = () => {
 
   return (
     <Box
+      className="domain-list-page"
       sx={
         isTreeView
           ? {
@@ -294,7 +295,7 @@ const DomainListPage = () => {
             px: 6,
             py: 4,
             borderBottom: `1px solid`,
-            borderColor: theme.palette.allShades?.gray?.[200],
+            borderColor: theme.palette.divider,
           }}>
           <Box sx={{ display: 'flex', gap: 5, alignItems: 'center' }}>
             {titleAndCount}

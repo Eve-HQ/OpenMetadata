@@ -325,11 +325,11 @@ const ExploreV1: React.FC<ExploreProps> = ({
                 gutter={[20, 0]}
                 wrap={false}>
                 <Col span={24}>
-                  <Card className="p-md card-padding-0 m-b-box">
+                  <Card className="m-b-box quick-filters-card">
                     <Row>
                       <Col className="searched-data-container w-full">
-                        <Row gutter={[0, 8]}>
-                          <Col>
+                        <Row align="middle" gutter={[12, 12]} wrap>
+                          <Col className="quick-filters-filters-col" flex="1 1 0">
                             <ExploreQuickFilters
                               aggregations={aggregations}
                               fields={selectedQuickFilters}
@@ -344,8 +344,8 @@ const ExploreV1: React.FC<ExploreProps> = ({
                             />
                           </Col>
                           <Col
-                            className="d-flex items-center justify-end gap-3"
-                            flex={410}>
+                            className="d-flex items-center justify-end gap-2 quick-filters-controls-col"
+                            flex="0 0 auto">
                             <span className="flex-center">
                               <Switch
                                 checked={showDeleted}

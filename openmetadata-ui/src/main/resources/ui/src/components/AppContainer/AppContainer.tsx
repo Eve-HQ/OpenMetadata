@@ -78,8 +78,10 @@ const AppContainer = () => {
         className={classNames('app-container', {
           ['extra-banner']: Boolean(bannerDetails),
         })}>
-        {/* Render left side navigation */}
-        <LeftSidebar />
+        {/* Render left side navigation - hidden when embedded in EVE (sidebar merged) */}
+        {!(typeof window !== 'undefined' && (window as Window & { EVE_METADATA_EMBEDDED?: boolean }).EVE_METADATA_EMBEDDED) && (
+          <LeftSidebar />
+        )}
 
         {/* Render main content */}
         <Layout>

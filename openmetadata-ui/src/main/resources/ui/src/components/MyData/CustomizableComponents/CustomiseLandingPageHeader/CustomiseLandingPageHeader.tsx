@@ -201,6 +201,7 @@ const CustomiseLandingPageHeader = ({
                 onCancel={() => setIsDomainDropdownOpen(false)}
                 onUpdate={handleDomainChange}>
                 <div
+                style={{padding: '14px'}}
                   className={classNames(
                     'd-flex items-center gap-2 border-radius-sm p-x-md bg-white domain-selector',
                     {
@@ -220,7 +221,7 @@ const CustomiseLandingPageHeader = ({
                     height={22}
                     width={22}
                   />
-                  <Typography.Text className="text-sm font-medium domain-title">
+                  <Typography.Text className="text-sm font-medium domain-title m-0">
                     {activeDomainEntityRef
                       ? getEntityName(activeDomainEntityRef)
                       : activeDomain}

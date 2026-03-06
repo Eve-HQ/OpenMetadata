@@ -131,7 +131,7 @@ type AuthContextType = {
   updateAxiosInterceptors: () => void;
 };
 
-const AuthContext = createContext<AuthContextType>({} as AuthContextType);
+export const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 
 export const AuthProvider = ({
   childComponentType,

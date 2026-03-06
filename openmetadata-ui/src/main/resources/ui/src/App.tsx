@@ -19,6 +19,7 @@ import { I18nextProvider } from 'react-i18next';
 import { useShallow } from 'zustand/react/shallow';
 import AppRouter from './components/AppRouter/AppRouter';
 import { AuthProvider } from './components/Auth/AuthProviders/AuthProvider';
+import { NoAuthProvider } from './components/Auth/AuthProviders/NoAuthProvider';
 import ErrorBoundary from './components/common/ErrorBoundary/ErrorBoundary';
 import { EntityExportModalProvider } from './components/Entity/EntityExportModalProvider/EntityExportModalProvider.component';
 import ApplicationsProvider from './components/Settings/Applications/ApplicationsProvider/ApplicationsProvider';
@@ -52,6 +53,8 @@ import { getThemeConfig } from './utils/ThemeUtils';
 const App: FC = () => {
   // Always use dark mode
   const darkMode = true;
+
+  console.log("Hello");
 
   const { applicationConfig, setApplicationConfig, setRdfEnabled } =
     useApplicationStore(
@@ -164,8 +167,33 @@ const App: FC = () => {
                       }}
                       autoHideDuration={6000}
                       maxSnack={3}>
-                      <AuthProvider childComponentType={AppRouter}>
-                        <TourProvider>
+                      {import.meta.env.VITE_OPENMETADATA_NO_AUTH === 'true' ? (
+                        <NoAuthProvider>
+                          <TourProvider>
+                            <WebAnalyticsProvider>
+                              <PermissionProvider>
+                                <WebSocketProvider>
+                                  <ApplicationsProvider>
+                                    <AsyncDeleteProvider>
+                                      <EntityExportModalProvider>
+                                        <AirflowStatusProvider>
+                                          <RuleEnforcementProvider>
+                                            <DndProvider backend={HTML5Backend}>
+                                              <AppRouter />
+                                            </DndProvider>
+                                          </RuleEnforcementProvider>
+                                        </AirflowStatusProvider>
+                                      </EntityExportModalProvider>
+                                    </AsyncDeleteProvider>
+                                  </ApplicationsProvider>
+                                </WebSocketProvider>
+                              </PermissionProvider>
+                            </WebAnalyticsProvider>
+                          </TourProvider>
+                        </NoAuthProvider>
+                      ) : (
+                        <AuthProvider childComponentType={AppRouter}>
+                          <TourProvider>
                           <WebAnalyticsProvider>
                             <PermissionProvider>
                               <WebSocketProvider>
@@ -187,6 +215,7 @@ const App: FC = () => {
                           </WebAnalyticsProvider>
                         </TourProvider>
                       </AuthProvider>
+                      )}
                     </SnackbarProvider>
                   </ThemeProvider>
                 </AntDConfigProvider>

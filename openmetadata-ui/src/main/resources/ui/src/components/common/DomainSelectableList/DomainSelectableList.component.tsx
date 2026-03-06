@@ -17,7 +17,6 @@ import { ReactComponent as EditIcon } from '../../../assets/svg/edit-new.svg';
 import { DE_ACTIVE_COLOR } from '../../../constants/constants';
 import { Domain } from '../../../generated/entity/domains/domain';
 import { EntityReference } from '../../../generated/entity/type';
-import { getVisiblePopupContainer } from '../../../utils/LandingPageWidget/WidgetsUtils';
 import { useGenericContext } from '../../Customization/GenericProvider/GenericProvider';
 import DomainSelectablTree from '../DomainSelectableTree/DomainSelectableTree';
 import { FocusTrapWithContainer } from '../FocusTrap/FocusTrapWithContainer';
@@ -110,9 +109,11 @@ const DomainSelectableList = ({
             </FocusTrapWithContainer>
           )
         }
-        getPopupContainer={getVisiblePopupContainer}
+        getPopupContainer={(trigger) =>
+          trigger?.closest('.openmetadata-scope') || document.body
+        }
         open={popupVisible}
-        overlayClassName={`domain-select-popover w-400 ${overlayClassName}`}
+        overlayClassName={`domain-select-popover ${overlayClassName || ''}`}
         placement="bottomRight"
         showArrow={false}
         trigger="click"
