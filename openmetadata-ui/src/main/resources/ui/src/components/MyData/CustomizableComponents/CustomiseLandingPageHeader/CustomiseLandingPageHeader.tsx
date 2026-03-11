@@ -183,6 +183,8 @@ const CustomiseLandingPageHeader = ({
               />
             )}
           </div>
+
+          
           <div className="mb-9 customise-search-container">
             <div className="d-flex items-center gap-4 mb-9">
               <CustomiseSearchBar disabled={!onHomePage} />
