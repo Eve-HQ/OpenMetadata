@@ -167,7 +167,7 @@ const App: FC = () => {
                       }}
                       autoHideDuration={6000}
                       maxSnack={3}>
-                      {import.meta.env.VITE_OPENMETADATA_NO_AUTH === 'true' ? (
+                      {true ? (
                         <NoAuthProvider>
                           <TourProvider>
                             <WebAnalyticsProvider>
