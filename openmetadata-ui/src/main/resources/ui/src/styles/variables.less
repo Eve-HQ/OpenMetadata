@@ -13,6 +13,129 @@
 
 // Colors
 
+// CSS Custom Properties for Dark Mode Support
+:root {
+  --om-background-primary: oklch(0.1822 0 0);
+  --om-background-secondary: oklch(0.1822 0 0);
+  --om-background-tertiary: oklch(0.25 0 0);
+  --om-background-hover: oklch(0.30 0 0);
+  --om-text-primary: #181d27;
+  --om-text-secondary: #414651;
+  --om-text-tertiary: #717680;
+  --om-border-color: #eaecf5;
+  --om-card-background: oklch(0.20 0 0);
+  --om-table-body: oklch(0.20 0 0);
+  --om-table-header: oklch(0.25 0 0);
+  --om-input-background: oklch(0.22 0 0);
+  --om-select-background: oklch(0.22 0 0);
+}
+
+&.dark-mode {
+  --om-background-primary:   oklch(0.1822 0 0); // mainBackground
+  --om-background-secondary: oklch(0.1822 0 0); // secondaryBackground
+  --om-background-tertiary:  oklch(0.25 0 0); // tertiaryBackground
+  --om-background-hover:     oklch(0.30 0 0); // hoverBackground
+
+  --om-text-primary:     #fafafa;  // mainText
+  --om-text-secondary:   #d5d7da; // secondaryText
+  --om-text-tertiary:    #a4a7ae; // mutedText
+  --om-text-placeholder: #717680; // placeholderText
+
+  --om-accent-primary: #039855; // primaryAccent (green)
+  --om-border-color:   #414651; // borderColor
+  --om-border-hover:   #535862; // hoverBorder
+
+  --om-card-background: oklch(0.20 0 0);
+  --om-card-border:     #414651;
+
+  --om-table-body:   oklch(0.20 0 0);
+  --om-table-header: oklch(0.25 0 0);
+
+  --om-input-background: oklch(0.22 0 0);
+  --om-input-border:     #414651;
+
+  --om-select-background: oklch(0.22 0 0);
+
+  --om-search-background: transparent;
+
+  --om-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --om-shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
+
+  --om-focus-ring: 0 0 0 4px rgba(3, 152, 85, 0.1);
+
+
+  @layout-body-background: var(--om-background-primary);
+  @layout-header-background: var(--om-background-secondary);
+  @background-color: var(--om-background-secondary);
+  @background-primary: var(--om-background-primary);
+
+  @text-color: var(--om-text-primary);
+  @text-color-tertiary: var(--om-text-tertiary);
+  @grey-text: var(--om-text-primary);
+
+  @border-color: var(--om-border-color);
+  @border-color-1: var(--om-border-color);
+  @border-color-2: var(--om-border-hover);
+  @divider-color: var(--om-border-color);
+  @light-border-color: var(--om-border-color);
+
+  @grey-50:  var(--om-background-primary);   // #0a0d12
+  @grey-100: var(--om-background-primary);   // #0a0d12
+
+  @om-border-color: var(--om-border-color);
+  @om-accent-primary: var(--om-accent-primary);
+  @grey-200: var(--om-border-color);         // #414651
+  @grey-300: var(--om-border-hover);         // #535862
+  @grey-400: var(--om-text-placeholder);     // #717680
+  @grey-500: var(--om-text-tertiary);        // #a4a7ae
+  @grey-600: var(--om-text-secondary);       // #d5d7da  (inverted – lighter in dark)
+  @grey-700: var(--om-text-secondary);       // #d5d7da
+  @grey-800: var(--om-background-tertiary);  // #252b37
+  @grey-900: var(--om-background-secondary); // #181d27
+
+  @grey-1:  var(--om-background-tertiary);   // surface
+  @grey-2:  var(--om-background-tertiary);
+  @grey-5:  var(--om-background-secondary);
+  @grey-6:  var(--om-background-secondary);
+  @grey-9:  var(--om-background-primary);
+  @grey-16: var(--om-background-tertiary);
+  @grey-22: var(--om-border-color);
+  @grey-25: var(--om-background-primary);
+  @grey-26: var(--om-background-secondary);
+
+  @tag-default-bg: var(--om-background-tertiary);
+  @test-parameter-bg-color: var(--om-background-tertiary);
+  @code-background: var(--om-background-tertiary);
+  @user-profile-background: var(--om-background-secondary);
+  @body-dark-bg-color: var(--om-background-primary);
+
+  @primary-color: var(--om-accent-primary);
+  @link-color:    var(--om-accent-primary);
+
+  @alert-info-bg:     var(--om-background-tertiary);
+  @alert-success-bg:  var(--om-background-tertiary);
+  @alert-warning-bg:  var(--om-background-tertiary);
+  @alert-error-bg:    var(--om-background-tertiary);
+
+  @timestamp-color: var(--om-text-placeholder);
+  @de-active-color:  var(--om-text-placeholder);
+  @navigation-text-color: var(--om-text-tertiary);
+  @group-title-color: var(--om-text-tertiary);
+
+  @trigger-btn-hover-bg:   var(--om-background-hover);
+  @left-sidebar-icon-hover: var(--om-background-hover);
+
+  @rdg-cell-range-selections-background-color: var(--om-background-tertiary);
+  @om-rdg-border-color: var(--om-border-color);
+  @om-rdg-header-color: var(--om-text-secondary);
+
+  @box-shadow-base: var(--om-shadow-md);
+  @box-shadow-card-subtle: var(--om-shadow-sm);
+  @button-box-shadow-focus: var(--om-focus-ring);
+  @focus-outline-color: rgba(3, 152, 85, 0.15);
+}
+
+
 @primary-color: ~'var(--ant-primary-color)';
 @success-color: ~'var(--ant-success-color)';
 @warning-color: ~'var(--ant-warning-color)';
@@ -44,7 +167,7 @@
 @green-10: #027a48;
 @green-11: #3f9593;
 @green-12: #d1fadf;
-@green-13: #039855;
+@green-13: #039855; // ← matches your primaryAccent exactly
 @green-14: #507a02;
 @green-15: #f7ffe7;
 @green-16: #abefc6;
@@ -250,7 +373,7 @@
 @nlp-border-color: #b9e6fe;
 @active-color: #e8f4ff;
 @rdg-cell-range-selections-background-color: #e9effd;
-@background-color: #ffffff;
+@background-color: #5d5d5d;
 @announcement-background: @blue-28;
 @announcement-background-dark: #e1edff;
 @announcement-border: @blue-27;
@@ -403,10 +526,10 @@
 @margin-xs: @size-xs; // small items
 @margin-xss: @size-xxs; // more small
 
-@error-bg-color: rgb(from @error-color r g b / 0.1);
-@success-bg-color: rgb(from @success-color r g b / 0.1);
-@warning-bg-color: rgb(from @warning-color r g b / 0.1);
-@info-bg-color: rgb(from @info-color r g b / 0.1);
+@error-bg-color: ~'color-mix(in srgb, @{error-color} 10%, transparent)';
+@success-bg-color: ~'color-mix(in srgb, @{success-color} 10%, transparent)';
+@warning-bg-color: ~'color-mix(in srgb, @{warning-color} 10%, transparent)';
+@info-bg-color: ~'color-mix(in srgb, @{info-color} 10%, transparent)';
 
 @card-radius: @border-rad-sm;
 @menu-radius: @border-rad-sm;
@@ -414,8 +537,8 @@
 // Layout
 
 @layout-body-background: @grey-9;
-@layout-header-background: @grey-9;
-@layout-header-height: 80px;
+@layout-header-background: #af1f1f;
+@layout-header-height: 100px;
 @layout-header-padding: 20px 24px;
 
 @menu-bg: @grey-9;

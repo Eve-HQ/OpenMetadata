@@ -19,16 +19,16 @@
   border-left: 4px solid transparent;
   opacity: 0.95;
   background-color: @grey-9 !important;
-  border: 0.5px solid #eaecf5;
+  border: 0.5px solid @grey-200;
   margin: 0 0 20px;
   overflow: hidden;
   .no-owner-text {
-    font-size: @size-sm;
-    font-weight: @font-regular;
+    font-size: 12px;
+    font-weight: 400;
   }
   &.highlight-card {
     border-left: 4px solid @primary-color;
-    background: @primary-50 !important;
+    background: rgba(3, 152, 85, 0.15) !important;
   }
 
   &:last-child {
@@ -39,7 +39,7 @@
     font-size: 12px;
 
     .no-owner {
-      color: @text-grey-muted;
+      color: @grey-500;
     }
   }
 
@@ -50,7 +50,6 @@
     transition: width 0.3s;
     padding: 4px;
     border-radius: 6px;
-    display: flex;
   }
   .ProseMirror-hideselection *::selection {
     background: inherit;
@@ -65,11 +64,11 @@
 }
 
 .score-container {
-  background-color: @blue-14;
+  background-color: rgba(@primary-color, 0.2);
   padding: 6px;
   border-radius: 6px;
 
   .score {
-    color: @primary-heading-color;
+    color: #6ce9a6;
   }
 }

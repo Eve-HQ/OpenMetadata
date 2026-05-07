@@ -15,7 +15,6 @@ import { EntityFields } from '../enums/AdvancedSearch.enum';
 
 export const DATAPRODUCT_DEFAULT_QUICK_FILTERS = [
   EntityFields.OWNERS,
-  EntityFields.DOMAINS,
   EntityFields.CLASSIFICATION_TAGS,
   EntityFields.GLOSSARY_TERMS,
 ];
@@ -24,10 +23,6 @@ export const DATAPRODUCT_FILTERS = [
   {
     label: 'label.owner-plural',
     key: EntityFields.OWNERS,
-  },
-  {
-    label: 'label.domain-plural',
-    key: EntityFields.DOMAINS,
   },
   {
     label: 'label.tag-plural',

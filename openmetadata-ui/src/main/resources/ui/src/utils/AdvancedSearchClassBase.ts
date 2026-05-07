@@ -843,34 +843,7 @@ class AdvancedSearchClassBase {
         },
       },
 
-      [EntityFields.DOMAINS]: {
-        label: t('label.domain-plural'),
-        type: 'select',
-        mainWidgetProps: this.mainWidgetProps,
-
-        fieldSettings: {
-          asyncFetch: this.autocomplete({
-            searchIndex: SearchIndex.DOMAIN,
-            entityField: EntityFields.DISPLAY_NAME_KEYWORD,
-          }),
-          useAsyncSearch: true,
-        },
-      },
-
-      [EntityFields.DATA_PRODUCT]: {
-        label: t('label.data-product'),
-        type: 'select',
-        mainWidgetProps: this.mainWidgetProps,
-
-        fieldSettings: {
-          asyncFetch: this.autocomplete({
-            searchIndex: SearchIndex.DATA_PRODUCT,
-            entityField: EntityFields.DISPLAY_NAME_KEYWORD,
-          }),
-          useAsyncSearch: true,
-        },
-      },
-
+      
       [EntityFields.SERVICE_TYPE]: {
         label: t('label.service-type'),
         type: 'select',

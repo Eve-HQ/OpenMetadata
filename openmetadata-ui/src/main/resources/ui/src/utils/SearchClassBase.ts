@@ -11,17 +11,12 @@
  *  limitations under the License.
  */
 import { SearchOutlined } from '@ant-design/icons';
-import { ReactComponent as GovernIcon } from '../assets/svg/bank.svg';
-import { ReactComponent as ClassificationIcon } from '../assets/svg/classification.svg';
 import { ReactComponent as IconDataModel } from '../assets/svg/data-model.svg';
-import { ReactComponent as GlossaryIcon } from '../assets/svg/glossary.svg';
 import { ReactComponent as IconAPICollection } from '../assets/svg/ic-api-collection-default.svg';
 import { ReactComponent as IconAPIEndpoint } from '../assets/svg/ic-api-endpoint-default.svg';
 import { ReactComponent as IconAPIService } from '../assets/svg/ic-api-service-default.svg';
 import { ReactComponent as DashboardIcon } from '../assets/svg/ic-dashboard.svg';
-import { ReactComponent as DataProductIcon } from '../assets/svg/ic-data-product.svg';
 import { ReactComponent as DatabaseIcon } from '../assets/svg/ic-database.svg';
-import { ReactComponent as DomainIcon } from '../assets/svg/ic-domain.svg';
 import { ReactComponent as DriveIcon } from '../assets/svg/ic-drive-service.svg';
 import { ReactComponent as MlModelIcon } from '../assets/svg/ic-ml-model.svg';
 import { ReactComponent as PipelineIcon } from '../assets/svg/ic-pipeline.svg';
@@ -31,7 +26,6 @@ import { ReactComponent as ContainerIcon } from '../assets/svg/ic-storage.svg';
 import { ReactComponent as IconStoredProcedure } from '../assets/svg/ic-stored-procedure.svg';
 import { ReactComponent as TableIcon } from '../assets/svg/ic-table.svg';
 import { ReactComponent as TopicIcon } from '../assets/svg/ic-topic.svg';
-import { ReactComponent as MetricIcon } from '../assets/svg/metric.svg';
 import { ReactComponent as IconTable } from '../assets/svg/table-grey.svg';
 import { ExploreSearchIndex } from '../components/Explore/ExplorePage.interface';
 import { ExploreTreeNode } from '../components/Explore/ExploreTree/ExploreTree.interface';
@@ -306,73 +300,7 @@ class SearchClassBase {
         },
         icon: DriveIcon,
       },
-      {
-        title: t('label.governance'),
-        key: 'Governance',
-        data: {
-          isRoot: true,
-          childEntities: [
-            EntityType.TAG,
-            EntityType.GLOSSARY_TERM,
-            EntityType.METRIC,
-          ],
-        },
-        icon: GovernIcon,
-        children: [
-          {
-            title: t('label.glossary-plural'),
-            key: EntityType.GLOSSARY_TERM,
-            isLeaf: true,
-            icon: GlossaryIcon,
-            data: {
-              entityType: EntityType.GLOSSARY_TERM,
-              isStatic: true,
-              dataId: 'Glossaries',
-            },
-          },
-          {
-            title: t('label.tag-plural'),
-            key: EntityType.TAG,
-            isLeaf: true,
-            icon: ClassificationIcon,
-            data: {
-              entityType: EntityType.TAG,
-              isStatic: true,
-              dataId: 'Tags',
-            },
-          },
-          {
-            title: t('label.metric-plural'),
-            key: EntityType.METRIC,
-            isLeaf: true,
-            icon: MetricIcon,
-            data: {
-              entityType: EntityType.METRIC,
-              isStatic: true,
-              dataId: 'Metrics',
-            },
-          },
-        ],
-      },
-      {
-        title: t('label.domain-plural'),
-        key: 'Domain',
-        data: { isRoot: true, childEntities: [EntityType.DATA_PRODUCT] },
-        icon: DomainIcon,
-        children: [
-          {
-            title: t('label.data-product-plural'),
-            key: EntityType.DATA_PRODUCT,
-            isLeaf: true,
-            icon: DataProductIcon,
-            data: {
-              entityType: EntityType.DATA_PRODUCT,
-              isStatic: true,
-            },
-          },
-        ],
-      },
-    ];
+                ];
   }
 
   public getExploreTreeKey(tab: ExplorePageTabs) {
@@ -474,28 +402,7 @@ class SearchClassBase {
         path: ExplorePageTabs.SEARCH_INDEX,
         icon: SearchOutlined,
       },
-      [SearchIndex.GLOSSARY_TERM]: {
-        label: t('label.glossary-term-plural'),
-        sortingFields: entitySortingFields,
-        sortField: INITIAL_SORT_FIELD,
-        path: ExplorePageTabs.GLOSSARY,
-        icon: GlossaryIcon,
-      },
-      [SearchIndex.TAG]: {
-        label: t('label.tag-plural'),
-        sortingFields: tagSortingFields,
-        sortField: TAGS_INITIAL_SORT_FIELD,
-        path: ExplorePageTabs.TAG,
-        icon: ClassificationIcon,
-      },
-      [SearchIndex.DATA_PRODUCT]: {
-        label: t('label.data-product-plural'),
-        sortingFields: tagSortingFields,
-        sortField: TAGS_INITIAL_SORT_FIELD,
-        path: ExplorePageTabs.DATA_PRODUCT,
-        icon: DataProductIcon,
-      },
-      [SearchIndex.API_COLLECTION_INDEX]: {
+            [SearchIndex.API_COLLECTION_INDEX]: {
         label: t('label.api-collection-plural'),
         sortingFields: tagSortingFields,
         sortField: INITIAL_SORT_FIELD,
@@ -509,40 +416,33 @@ class SearchClassBase {
         path: ExplorePageTabs.API_ENDPOINT,
         icon: IconAPIEndpoint,
       },
-      [SearchIndex.METRIC_SEARCH_INDEX]: {
-        label: t('label.metric-plural'),
-        sortingFields: tagSortingFields,
-        sortField: TAGS_INITIAL_SORT_FIELD,
-        path: ExplorePageTabs.METRIC,
-        icon: MetricIcon,
-      },
       [SearchIndex.DIRECTORY_SEARCH_INDEX]: {
         label: t('label.directory-plural'),
         sortingFields: tagSortingFields,
         sortField: TAGS_INITIAL_SORT_FIELD,
         path: ExplorePageTabs.DIRECTORIES,
-        icon: MetricIcon,
+        icon: DriveIcon,
       },
       [SearchIndex.FILE_SEARCH_INDEX]: {
         label: t('label.file-plural'),
         sortingFields: tagSortingFields,
         sortField: TAGS_INITIAL_SORT_FIELD,
         path: ExplorePageTabs.FILES,
-        icon: MetricIcon,
+        icon: DriveIcon,
       },
       [SearchIndex.SPREADSHEET_SEARCH_INDEX]: {
         label: t('label.spreadsheet-plural'),
         sortingFields: tagSortingFields,
         sortField: TAGS_INITIAL_SORT_FIELD,
         path: ExplorePageTabs.SPREADSHEETS,
-        icon: MetricIcon,
+        icon: DriveIcon,
       },
       [SearchIndex.WORKSHEET_SEARCH_INDEX]: {
         label: t('label.worksheet-plural'),
         sortingFields: tagSortingFields,
         sortField: TAGS_INITIAL_SORT_FIELD,
         path: ExplorePageTabs.WORKSHEETS,
-        icon: MetricIcon,
+        icon: DriveIcon,
       },
     };
   }

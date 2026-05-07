@@ -58,7 +58,6 @@ export type UrlParams = {
 };
 
 export type ExploreSearchIndex =
-  | SearchIndex.DATA_PRODUCT
   | SearchIndex.TABLE
   | SearchIndex.PIPELINE
   | SearchIndex.DASHBOARD
@@ -67,14 +66,11 @@ export type ExploreSearchIndex =
   | SearchIndex.MLMODEL
   | SearchIndex.TOPIC
   | SearchIndex.CONTAINER
-  | SearchIndex.GLOSSARY_TERM
-  | SearchIndex.TAG
   | SearchIndex.SEARCH_INDEX
   | SearchIndex.STORED_PROCEDURE
   | SearchIndex.DASHBOARD_DATA_MODEL
   | SearchIndex.API_COLLECTION_INDEX
   | SearchIndex.API_ENDPOINT_INDEX
-  | SearchIndex.METRIC_SEARCH_INDEX
   | SearchIndex.DIRECTORY_SEARCH_INDEX
   | SearchIndex.FILE_SEARCH_INDEX
   | SearchIndex.SPREADSHEET_SEARCH_INDEX

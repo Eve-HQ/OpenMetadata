@@ -13,32 +13,20 @@
 
 import {
   Alert,
-  Badge,
   Button,
-  Dropdown,
   InputRef,
-  Tooltip,
-  Typography,
 } from 'antd';
 import { Header } from 'antd/lib/layout/layout';
 import { AxiosError } from 'axios';
-import classNames from 'classnames';
 import { CookieStorage } from 'cookie-storage';
 import i18next from 'i18next';
-import { startCase, upperCase } from 'lodash';
+import { startCase } from 'lodash';
 import { MenuInfo } from 'rc-menu/lib/interface';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { ReactComponent as DropDownIcon } from '../../assets/svg/drop-down.svg';
-import { ReactComponent as IconBell } from '../../assets/svg/ic-alert-bell.svg';
-import { ReactComponent as DomainIcon } from '../../assets/svg/ic-domain.svg';
-import { ReactComponent as Help } from '../../assets/svg/ic-help.svg';
 import { ReactComponent as RefreshIcon } from '../../assets/svg/ic-refresh.svg';
-import { ReactComponent as SidebarCollapsedIcon } from '../../assets/svg/ic-sidebar-collapsed.svg';
-import { ReactComponent as SidebarExpandedIcon } from '../../assets/svg/ic-sidebar-expanded.svg';
 import {
-  DEFAULT_DOMAIN_VALUE,
   LAST_VERSION_FETCH_TIME_KEY,
   NOTIFICATION_READ_TIMER,
   ONE_HOUR_MS,
@@ -438,76 +426,27 @@ const NavBar = () => {
   return (
     <>
       <Header>
-        <div className="navbar-container">
-          <div className="flex-center">
-            <Tooltip
-              placement="right"
-              title={
-                isSidebarCollapsed ? t('label.expand') : t('label.collapse')
-              }>
-              <Button
-                className="mr-2 w-6 h-6 p-0 flex-center"
-                data-testid="sidebar-toggle"
-                icon={
-                  isSidebarCollapsed ? (
-                    <SidebarCollapsedIcon height={20} width={20} />
-                  ) : (
-                    <SidebarExpandedIcon height={20} width={20} />
-                  )
-                }
-                size="middle"
-                type="text"
-                onClick={() =>
-                  setPreference({ isSidebarCollapsed: !isSidebarCollapsed })
-                }
-              />
-            </Tooltip>
-            {!isHomePage && !isTourPage && (
-              <>
-                <GlobalSearchBar />
-                <DomainSelectableList
-                  hasPermission
-                  showAllDomains
-                  popoverProps={{
-                    open: isDomainDropdownOpen,
-                    onOpenChange: (open) => {
-                      setIsDomainDropdownOpen(open);
-                    },
-                  }}
-                  selectedDomain={activeDomainEntityRef}
-                  wrapInButton={false}
-                  onCancel={() => setIsDomainDropdownOpen(false)}
-                  onUpdate={handleDomainChange}>
-                  <Button
-                    className={classNames(
-                      'domain-nav-btn flex-center gap-2 p-x-sm p-y-xs font-medium m-l-md',
-                      {
-                        'domain-active': activeDomain !== DEFAULT_DOMAIN_VALUE,
-                      }
-                    )}
-                    data-testid="domain-dropdown"
-                    onClick={() =>
-                      setIsDomainDropdownOpen(!isDomainDropdownOpen)
-                    }>
-                    <DomainIcon
-                      className="d-flex"
-                      height={20}
-                      name="domain"
-                      width={20}
-                    />
-                    <Typography.Text ellipsis className="domain-text">
-                      {activeDomainEntityRef
-                        ? getEntityName(activeDomainEntityRef)
-                        : activeDomain}
-                    </Typography.Text>
-                    <DropDownIcon width={12} />
-                  </Button>
-                </DomainSelectableList>
-              </>
-            )}
-          </div>
+       <div className="navbar-container">
+  {/* LEFT SIDE */}
+  <div className="nav-left">
+  <div className="catalogue-wrapper">
+    <span className="catalogue-text">Catalogue</span>
+    <span className="catalogue-subtext">Explore your data assets</span>
+  </div>
+</div>
 
-          <div className="flex-center gap-5 nav-bar-side-items">
+  {/* RIGHT SIDE */}
+  <div className="nav-right-1">
+    {!isHomePage && !isTourPage && (
+     <div className="search-wrapper">
+      <div className="search-container">
+        <GlobalSearchBar />
+      </div>
+    </div>
+    )}
+  </div>
+
+          {/* <div className="flex-center gap-5 nav-bar-side-items">
             <Dropdown
               className="cursor-pointer"
               menu={{
@@ -574,7 +513,7 @@ const NavBar = () => {
               />
             </Dropdown>
             <UserProfileIcon />
-          </div>
+          </div> */}
         </div>
       </Header>
       {showVersionMissMatchAlert && (

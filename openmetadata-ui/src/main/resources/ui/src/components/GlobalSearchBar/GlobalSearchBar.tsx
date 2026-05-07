@@ -231,7 +231,14 @@ export const GlobalSearchBar = () => {
         </>
       )}
       <Popover
-        align={{ offset: [0, 12] }}
+        align={{ offset: [0, 4] }}
+        overlayInnerStyle={{
+          background: '#141414',
+          border: '1px solid #414651',
+          borderRadius: '10px',
+          boxShadow: 'none',
+          padding: '10px',
+        }}
         content={
           !isTourOpen &&
           (searchValue || isNLPActive) &&
@@ -270,9 +277,9 @@ export const GlobalSearchBar = () => {
           className="rounded-4 appbar-search"
           data-testid="searchBox"
           id="searchBox"
-          placeholder={t('label.search-for-type', {
+          placeholder={`${t('label.search-for-type', {
             type: t('label.data-asset-plural'),
-          })}
+          })}...`}
           type="text"
           value={searchValue}
           onBlur={() => {
@@ -290,8 +297,6 @@ export const GlobalSearchBar = () => {
         />
       </Popover>
 
-      {entitiesSelect}
-      <Divider className="h-5 m-r-md" type="vertical" />
       {searchValue ? (
         <Icon
           alt="icon-cancel"

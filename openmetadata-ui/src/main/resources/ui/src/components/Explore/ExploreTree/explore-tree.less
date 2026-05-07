@@ -10,17 +10,27 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-@import (reference) '../../../styles/variables.less';
+@import '../../../styles/variables.less';
 
 .ant-tree-treenode-selected {
   .explore-node-count {
     span {
-      color: @white;
+      color: @text-color;
       background: @primary-color;
     }
   }
 }
 .explore-tree {
+  .ant-tree-treenode {
+    padding-left: 15px !important;
+  }
+
+  .ant-tree-node-content-wrapper {
+    padding-left: 15px !important;
+    display: flex;
+    align-items: center;
+  }
+
   .ant-tree-iconEle {
     svg {
       width: 16px;

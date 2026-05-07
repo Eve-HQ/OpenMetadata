@@ -307,9 +307,7 @@ const ExploreTree = ({ onFieldValueSelect }: ExploreTreeProps) => {
       setTreeData((origin) => {
         const updatedData = updateTreeDataWithCounts(origin, buckets);
 
-        return updatedData.filter(
-          (node) => node.totalCount !== undefined && node.totalCount > 0
-        );
+        return updatedData;
       });
     } catch {
       // Do nothing

@@ -11,17 +11,17 @@
  *  limitations under the License.
  */
 
-@import (reference) '../../../styles/variables.less';
+@import '../../../styles/variables.less';
 @import (reference) '../../../styles/components/card.less';
 
 .entity-summary-panel-container,
 .column-detail-panel-container {
   height: 100%;
-  background: @white;
+  background: @grey-9;
   &.explore,
   &.lineage,
   &.glossary-term-assets-tab {
-    background: @background-primary;
+    background: @grey-9;
   }
 
   .overview-tab-content {
@@ -37,8 +37,9 @@
     border-bottom: none !important;
     border-radius: 8px !important;
     display: flex;
-    border-color: @grey-38 !important;
+    border-color: @grey-200 !important;
     border-top: none !important;
+    background: @grey-9;
 
     &.drawer-summary-panel-container {
       width: 85%;
@@ -61,7 +62,7 @@
             border-radius: 0px;
           }
           .ant-tabs-tabpane {
-            background-color: @white;
+            background-color: @grey-9;
             overflow-y: auto;
             margin: 0px;
           }
@@ -92,7 +93,7 @@
       height: 100%;
       border-radius: 8px;
       position: relative;
-      background: @white;
+      background: #181d27; // secondaryBackground
       &::-webkit-scrollbar {
         width: 0px;
         background: transparent;
@@ -146,12 +147,12 @@
 
     .summary-schema-editor {
       margin: 16px 0px;
-      border: @global-border;
+      border: 1px solid #414651; // borderColor
       border-radius: 4px;
     }
 
     .link {
-      color: @primary-color;
+      color: #039855; // primaryAccent
     }
   }
 
@@ -160,21 +161,21 @@
   }
 
   .summary-panel-custom-query-editor {
-    border: @global-border;
-    border-radius: @border-rad-base;
+    border: 1px solid #414651; // borderColor
+    border-radius: 4px;
 
     .CodeMirror {
-      border-radius: @border-rad-base;
+      border-radius: 4px;
       height: 300px;
     }
   }
 
   .summary-panel-card {
     background-color: @grey-9;
-    border: 0.5px solid @grey-15;
+    border: 0.5px solid @grey-200;
   }
   .entity-icon {
-    color: @primary-7;
+    color: @primary-color;
     width: 18px !important;
     height: 18px !important;
     margin-left: 4px;
@@ -187,10 +188,16 @@
     z-index: 999;
     top: 0;
     flex: 1;
-    background-color: @white;
-  }
-  .drawer-title-section {
-    background-color: transparent !important;
+    background-color: @grey-9;
+    > div {
+      background-color: @grey-9;
+      padding: 12px;
+      border-radius: 8px;
+    }
+    a,
+    .entity-title-link {
+      color: @primary-color;
+    }
   }
   .title-container {
     display: flex;
@@ -200,7 +207,7 @@
     height: 49px;
     padding-left: 4px;
     padding-right: 4px;
-    background-color: @grey-9;
+    background-color: @grey-9; 
     .d-flex {
       flex: 1;
       min-width: 0;
@@ -236,8 +243,7 @@
       display: flex;
       flex-direction: column;
       padding-top: 16px;
-      padding-bottom: 16px;
-      background-image: linear-gradient(to right, @grey-15 66%, @white 0%);
+      background-image: linear-gradient(to right, @grey-200 66%, @grey-9 0%);
       background-position: bottom;
       background-size: 3px 1px;
       background-repeat: repeat-x;
@@ -253,14 +259,14 @@
 
       .property-name {
         font-size: 13px;
-        color: @grey-900;
+        color: @grey-600;
         font-weight: 600;
       }
 
       .property-value {
         font-size: 12px;
         font-weight: 400;
-        color: @grey-700;
+        color: @grey-500;
         word-break: break-word;
       }
     }
@@ -272,86 +278,40 @@
       thead {
         background-color: @grey-9;
       }
-      th {
-        color: @grey-600;
-        font-weight: 500;
-        padding-top: 10px;
-        padding-bottom: 11px;
-        font-size: 11px;
-        border-bottom: 1px solid @light-border-color;
-      }
-      tr {
+
+      .ant-table-thead > tr {
         text-align: center;
       }
-      .ant-table {
-        border: 1px solid @grey-200;
-        border-radius: 10px;
-        overflow: hidden;
-        width: 100%;
 
-        .ant-table-thead > tr > th {
-          background-color: @grey-50;
-          border-bottom: 1px solid @light-border-color;
-          font-weight: 600;
-          font-size: 12px;
-          color: @text-color;
-          padding: 12px 20px;
-          text-align: left;
-          white-space: nowrap;
+      .ant-table-thead > tr > td {
+        border-bottom: 1px solid @grey-200;
+        font-size: 12px;
+        color: @text-color;
+        padding: 12px 20px;
+        text-align: left;
+        white-space: nowrap;
 
-          &:first-child {
-            padding-left: 16px;
-          }
-
-          &:last-child {
-            padding-right: 16px;
-          }
+        &:first-child {
+          padding-left: 16px;
         }
 
-        .ant-table-thead > tr {
-          text-align: center;
+        &:last-child {
+          padding-right: 16px;
         }
+      }
 
-        .ant-table-thead > tr > td {
-          border-bottom: 1px solid @light-border-color;
-          font-size: 12px;
-          color: @text-color;
-          padding: 12px 20px;
-          text-align: left;
-          white-space: nowrap;
-
-          &:first-child {
-            padding-left: 16px;
-          }
-
-          &:last-child {
-            padding-right: 16px;
-          }
-        }
-
-        .ant-table-tbody > tr:last-child > td {
-          border-bottom: none;
-          border-bottom: 1px solid @light-border-color;
-        }
-        tbody > tr > td {
-          padding-top: 10px;
-          font-size: 13px;
-          padding-bottom: 11px;
-        }
+      .ant-table-tbody > tr:last-child > td {
+        border-bottom: 1px solid @grey-200;
+      }
+      tbody > tr > td {
+        padding-top: 10px;
+        font-size: 13px;
+        padding-bottom: 11px;
       }
     }
   }
   .drawer-close-icon {
     background: transparent;
     border: none;
-
-    svg {
-      height: 16px;
-      width: 16px;
-    }
-    &:hover {
-      background: none;
-      border: none;
-    }
   }
 }

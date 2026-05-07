@@ -763,7 +763,7 @@ export const DataAssetsHeader = ({
             {tierSuggestionRender ?? (
               <TierCard currentTier={tier?.tagFQN} updateTier={onTierUpdate}>
                 <Space
-                  className="d-flex align-start"
+                  className="d-flex align-center"
                   data-testid="header-tier-container">
                   {tier ? (
                     <div className="d-flex flex-col gap-2">

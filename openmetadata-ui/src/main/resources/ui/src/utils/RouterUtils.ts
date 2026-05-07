@@ -619,7 +619,7 @@ export const getClassificationTagPath = (
 
   path = path.replace(PLACEHOLDER_ROUTE_FQN, getEncodedFqn(tagFqn));
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getClassificationVersionsPath = (
@@ -696,7 +696,7 @@ export const getTagsDetailsPath = (entityFQN: string) => {
   const classification = getPartialNameFromFQN(entityFQN, ['service']);
   path = path.replace(PLACEHOLDER_ROUTE_FQN, classification);
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getVersionPath = (
@@ -744,7 +744,7 @@ export const getServiceDetailsPath = (
     path = path.replace(PLACEHOLDER_ROUTE_SUB_TAB, subTab);
   }
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getExplorePath: (args: {
@@ -820,7 +820,7 @@ export const getEntityDetailsPath = (
   path = path.replace(PLACEHOLDER_ROUTE_FQN, getEncodedFqn(fqn));
   path = path.replace(PLACEHOLDER_ROUTE_ENTITY_TYPE, entityType);
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getGlossaryTermDetailsPath = (
@@ -840,7 +840,7 @@ export const getGlossaryTermDetailsPath = (
   }
   path = path.replace(PLACEHOLDER_ROUTE_FQN, getEncodedFqn(glossaryFQN));
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getTeamAndUserDetailsPath = (name?: string) => {
