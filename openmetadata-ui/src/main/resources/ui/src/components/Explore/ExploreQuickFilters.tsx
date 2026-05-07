@@ -214,7 +214,7 @@ const ExploreQuickFilters: FC<ExploreQuickFiltersProps> = ({
             selectedKeys={selectedKeys ?? []}
             showSelectedCounts={showSelectedCounts}
             triggerButtonSize="middle"
-            onChange={(updatedValues) => {
+            onChange={(updatedValues, _searchKey) => {
               onFieldValueSelect({ ...field, value: updatedValues });
             }}
             onGetInitialOptions={getInitialOptions}

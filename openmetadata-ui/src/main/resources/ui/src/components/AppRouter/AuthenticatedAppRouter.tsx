@@ -727,7 +727,7 @@ const AuthenticatedAppRouter: FunctionComponent = () => {
         return <Route key={route.path ?? route.id} {...route} />;
       })}
 
-      <Route element={<CustomNavigate to={ROUTES.MY_DATA} replace />} path={ROUTES.HOME} />
+      <Route element={<CustomNavigate to={ROUTES.EXPLORE} replace />} path={ROUTES.HOME} />
       <Route
         element={
           <AdminProtectedRoute>

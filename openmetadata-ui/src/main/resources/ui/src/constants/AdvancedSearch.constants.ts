@@ -19,10 +19,6 @@ import { t } from '../utils/i18next/LocalUtil';
 
 export const COMMON_DROPDOWN_ITEMS = [
   {
-    label: 'label.domain-plural',
-    key: EntityFields.DOMAINS,
-  },
-  {
     label: 'label.owner-plural',
     key: EntityFields.OWNERS,
   },
@@ -48,10 +44,6 @@ export const DATA_ASSET_DROPDOWN_ITEMS = [
   {
     label: 'label.data-asset-plural',
     key: EntityFields.ENTITY_TYPE_KEYWORD,
-  },
-  {
-    label: 'label.domain-plural',
-    key: EntityFields.DOMAINS,
   },
   {
     label: 'label.owner-plural',
@@ -178,11 +170,7 @@ export const CONTAINER_DROPDOWN_ITEMS = [
 ];
 
 export const GLOSSARY_DROPDOWN_ITEMS = [
-  {
-    label: 'label.domain-plural',
-    key: EntityFields.DOMAINS,
-  },
-  {
+    {
     label: 'label.owner-plural',
     key: EntityFields.OWNERS,
   },
@@ -201,22 +189,14 @@ export const GLOSSARY_DROPDOWN_ITEMS = [
 ];
 
 export const TAG_DROPDOWN_ITEMS = [
-  {
-    label: 'label.domain-plural',
-    key: EntityFields.DOMAINS,
-  },
-  {
+    {
     label: 'label.classification',
     key: EntityFields.CLASSIFICATION,
   },
 ];
 
 export const DATA_PRODUCT_DROPDOWN_ITEMS = [
-  {
-    label: 'label.domain-plural',
-    key: EntityFields.DOMAINS,
-  },
-  {
+    {
     label: 'label.owner-plural',
     key: EntityFields.OWNERS,
   },
@@ -260,11 +240,7 @@ export const GLOSSARY_ASSETS_DROPDOWN_ITEMS = [
     },
     key: EntityFields.ENTITY_TYPE,
   },
-  {
-    label: 'label.domain-plural',
-    key: EntityFields.DOMAINS,
-  },
-  {
+    {
     label: 'label.owner-plural',
     key: EntityFields.OWNERS,
   },

@@ -17,17 +17,18 @@
 import { ReactNode, useEffect } from 'react';
 import { User } from '../../../generated/entity/teams/user';
 import { useApplicationStore } from '../../../hooks/useApplicationStore';
+import APIClient from '../../../rest';
 import { AuthContext } from './AuthProvider';
 
 const noOp = () => {};
 const noOpAsync = async () => {};
 
-const GUEST_USER: User = {
-  id: 'no-auth-guest',
-  name: 'guest',
-  displayName: 'Guest',
-  email: 'guest@localhost',
-  isAdmin: false,
+const FALLBACK_USER: User = {
+  id: 'no-auth-admin',
+  name: 'admin',
+  displayName: 'Admin',
+  email: 'admin@open-metadata.org',
+  isAdmin: true,
   teams: [],
   roles: [],
 };
@@ -54,10 +55,22 @@ export const NoAuthProvider = ({ children }: NoAuthProviderProps) => {
   } = useApplicationStore();
 
   useEffect(() => {
-    setCurrentUser(GUEST_USER);
-    setIsAuthenticated(true);
-    setApplicationLoading(false);
-    setIsAuthenticating(false);
+    const init = async () => {
+      setIsAuthenticating(true);
+      try {
+        const { data } = await APIClient.get<User>(
+          '/users/name/admin?fields=teams,roles,personas'
+        );
+        setCurrentUser(data);
+      } catch {
+        setCurrentUser(FALLBACK_USER);
+      } finally {
+        setIsAuthenticated(true);
+        setApplicationLoading(false);
+        setIsAuthenticating(false);
+      }
+    };
+    init();
   }, [
     setCurrentUser,
     setIsAuthenticated,

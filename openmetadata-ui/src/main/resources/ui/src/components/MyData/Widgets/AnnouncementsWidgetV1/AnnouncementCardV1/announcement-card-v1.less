@@ -21,7 +21,7 @@
   -webkit-backdrop-filter: none;
   cursor: pointer;
   overflow: hidden;
-  background: @white !important;
+  background: var(--om-card-background) !important;
 
   &.disabled {
     cursor: not-allowed;
@@ -38,7 +38,7 @@
       justify-content: space-between;
       align-items: flex-start;
       margin-bottom: @size-xs;
-      background: @white !important;
+      background: var(--om-card-background) !important;
       border-radius: @border-rad-xs;
 
       .announcement-title-section {
@@ -48,7 +48,7 @@
         flex: 1;
         min-width: 0;
         height: 44px;
-        background: linear-gradient(270deg, @white -12.07%, @blue-24 500.72%);
+        background: linear-gradient(270deg, var(--om-card-background) -12.07%, @blue-24 500.72%);
         border-radius: @border-rad-xs;
 
         .user-name {
@@ -148,7 +148,8 @@
       line-height: 1.5;
       margin: @size-xs 0 0 0;
       display: -webkit-box;
-      -webkit-line-clamp: 2;
+      line-clamp: 2;
+  -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;

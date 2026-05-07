@@ -71,6 +71,15 @@ const LineageTabContent: React.FC<LineageTabContentProps> = ({
       };
     }, [lineageData, entityFqn]);
 
+  const UUID_SEGMENT_RE = /^[0-9a-f]{8}[_-][0-9a-f]{4}[_-][0-9a-f]{4}[_-][0-9a-f]{4}[_-][0-9a-f]{12}$/i;
+
+  const buildReadablePath = (fqn: string): string => {
+    const parts = fqn.split('.').slice(0, -1); // remove entity name (last segment)
+    const readable = parts.filter((p) => !UUID_SEGMENT_RE.test(p));
+
+    return readable.join(' > ');
+  };
+
   const lineageItems = useMemo(() => {
     const items: Array<{
       entity: EntityReference & {
@@ -86,8 +95,7 @@ const LineageTabContent: React.FC<LineageTabContentProps> = ({
     if (filter === 'upstream') {
       for (const entity of upstreamNodes) {
         if (entity.fullyQualifiedName !== entityFqn) {
-          const pathParts = entity.fullyQualifiedName?.split('.') || [];
-          const path = pathParts.slice(0, -1).join(' > ');
+          const path = buildReadablePath(entity.fullyQualifiedName ?? '');
           const nodeData = lineageData.nodes?.[entity.id];
           const owners = (
             nodeData?.entity as EntityReference & {
@@ -107,8 +115,7 @@ const LineageTabContent: React.FC<LineageTabContentProps> = ({
     if (filter === 'downstream') {
       for (const entity of downstreamNodes) {
         if (entity.fullyQualifiedName !== entityFqn) {
-          const pathParts = entity.fullyQualifiedName?.split('.') || [];
-          const path = pathParts.slice(0, -1).join(' > ');
+          const path = buildReadablePath(entity.fullyQualifiedName ?? '');
           const nodeData = lineageData.nodes?.[entity.id];
           const owners = (
             nodeData?.entity as EntityReference & {
@@ -211,7 +218,6 @@ const LineageTabContent: React.FC<LineageTabContentProps> = ({
                 item.entity.fullyQualifiedName ||
                 `${item.direction}-${item.path}`
               }
-              target="_blank"
               to={getEntityLinkFromType(
                 item.entity.fullyQualifiedName ?? '',
                 item.entity.entityType as EntityType

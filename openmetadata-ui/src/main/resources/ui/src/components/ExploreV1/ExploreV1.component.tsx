@@ -312,7 +312,7 @@ const ExploreV1: React.FC<ExploreProps> = ({
           flex: 0.2,
           minWidth: 280,
           title: t('label.data-asset-plural'),
-          children: <div className="p-x-sm">{exploreLeftPanel}</div>,
+          children: <div>{exploreLeftPanel}</div>,
         }}
         secondPanel={{
           className: 'content-height-with-resizable-panel',
@@ -356,17 +356,7 @@ const ExploreV1: React.FC<ExploreProps> = ({
                                 {t('label.deleted')}
                               </Typography.Text>
                             </span>
-                            {(quickFilters || sqlQuery) && (
-                              <Typography.Text
-                                className="text-primary self-center cursor-pointer font-medium"
-                                data-testid="clear-filters"
-                                onClick={() => clearFilters()}>
-                                {t('label.clear-entity', {
-                                  entity: '',
-                                })}
-                              </Typography.Text>
-                            )}
-
+                            
                             <Button
                               className="cursor-pointer"
                               data-testid="advance-search-button"

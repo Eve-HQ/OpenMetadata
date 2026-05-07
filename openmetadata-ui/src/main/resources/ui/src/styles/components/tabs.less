@@ -1,14 +1,5 @@
 /*
- *  Copyright 2022 Collate.
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *  http://www.apache.org/licenses/LICENSE-2.0
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
+ *  Licensed under the Apache License, Version 2.0
  */
 
 .ant-tabs-tab.ant-tabs-tab-active {
@@ -37,7 +28,7 @@
 }
 
 .ant-tabs-tab {
-  color: @text-color-tertiary;
+  color: var(--om-text-tertiary);
 }
 
 .ant-tabs.tabs-new {
@@ -48,6 +39,7 @@
     height: 20px;
     width: 20px;
     vertical-align: middle;
+
     * {
       font-size: 20px !important;
     }
@@ -57,9 +49,8 @@
     margin: 0;
     padding: 0 20px;
     height: 48px;
-    // background: @white;
+    background: var(--om-background-secondary);
     border-radius: 12px;
-    // border: 1px solid @grey-15;
 
     &::before {
       border-bottom: none;
@@ -73,13 +64,13 @@
         position: relative;
 
         &.ant-tabs-tab-active {
-          color: @primary-color;
+          color: var(--om-accent-primary);
           font-weight: 600;
 
           [data-testid='count'] > span {
-            background-color: @primary-color;
-            border-color: @primary-color;
-            color: @white;
+            background-color: var(--om-accent-primary);
+            border-color: var(--om-accent-primary);
+            color: #fff;
           }
         }
       }
@@ -89,13 +80,14 @@
   .ant-tabs-tabpane {
     margin-top: @padding-sm;
     border-radius: @border-rad-sm;
-    background-color: @white;
+    background-color: var(--om-card-background);
+    color: var(--om-text-primary);
   }
 
   .ant-tabs-ink-bar {
     bottom: 6px;
     height: 2px;
-    background-color: @primary-color;
+    background-color: var(--om-accent-primary);
   }
 }
 
@@ -103,7 +95,7 @@
 .entity-details-page-tabs {
   .ant-tabs.tabs-new {
     .ant-tabs-tabpane {
-      background-color: @grey-9;
+      background-color: var(--om-background-primary);
       margin-bottom: @margin-md;
     }
   }

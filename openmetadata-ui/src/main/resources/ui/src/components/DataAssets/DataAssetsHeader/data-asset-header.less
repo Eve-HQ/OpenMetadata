@@ -1,157 +1,144 @@
-/*
- *  Copyright 2024 Collate.
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *  http://www.apache.org/licenses/LICENSE-2.0
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
 @import (reference) '../../../styles/variables.less';
 
 .data-assets-header-container {
+
   .data-asset-header-metadata {
-    border-radius: 12px;
-    border: 1px solid @grey-15;
-    padding: 16px 20px;
-    gap: 16px;
     display: flex;
-    background-color: @background-color;
+    align-items: center;
     flex-wrap: wrap;
+    gap: 24px; /* better spacing */
+    padding: 16px 20px;
+
+    border-radius: 12px;
+    border: 1px solid var(--om-border-color);
+    background-color: var(--om-card-background);
+    color: var(--om-text-primary);
   }
 
-  .ant-space-item {
-    .entity-no-tier {
-      color: @primary-heading-color;
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 20px;
-    }
+  .data-asset-header-metadata > * {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
   }
 
-  .ant-btn-icon-only.edit-tier-button {
-    border: 1px solid @border-light;
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-
-    svg {
-      color: @grey-600;
-    }
+  .entity-no-tier {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--om-text-secondary);
   }
 
-  .ant-typography > .extra-info-label-heading {
-    color: @primary-heading-color;
+  .extra-info-label-heading {
+    font-size: 12px;
+    color: var(--om-text-tertiary);
+  }
+
+  .extra-info-value {
+    font-size: 14px;
+    color: var(--om-text-primary);
     font-weight: 500;
   }
 
-  .ant-typography > .extra-info-value {
-    color: @grey-700;
-  }
-
   .header-icon {
-    height: 72px;
-    width: 60px;
+    height: 56px;
+    width: 56px;
     object-fit: contain;
   }
 
-  .no-tier-text {
-    color: @grey-700;
+  .ant-btn-group.spaced {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
-  .ant-typography.extra-info-link {
-    color: @primary-heading-color;
-    max-width: 200px;
-  }
-  .owner-label-container,
-  .domain-label-container {
-    max-width: 220px;
-  }
-  .domain-link-container {
-    //consistent width for data-asset-header
-    max-width: 148px;
+  .ant-btn.ant-btn-default.data-contract-latest-result-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 32px;
 
-    .domain-link-text.render-domain-lebel-style {
-      color: @grey-700;
-      display: inline-block;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      max-width: 148px;
-    }
-  }
-  a.source-url-link {
-    text-decoration: none;
-    &:hover {
-      text-decoration: none;
-    }
-  }
-  .ant-btn.ant-btn-default.source-url-button {
-    background-color: @primary-button-background;
-    color: @primary-heading-color;
-    span.anticon {
-      border-radius: 50%;
-      background-color: @alert-info-icon-bg-1;
-      padding: 4px;
-      height: 32px;
-      width: 32px;
-      border: 4px solid @blue-14;
-    }
+    font-size: 13px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-weight: 600;
 
     svg {
-      fill: transparent;
+      font-size: 18px;
+    }
+
+    &.failed {
+      color: var(--ant-color-error);
+      border: 1px solid var(--ant-color-error-border);
+      background-color: var(--ant-color-error-bg);
+    }
+
+    &.aborted {
+      color: var(--ant-color-warning);
+      border: 1px solid var(--ant-color-warning-border);
+      background-color: var(--ant-color-warning-bg);
+    }
+
+    &.running {
+      color: var(--om-accent-primary);
+      border: 1px solid var(--om-border-color);
+      background-color: var(--om-background-tertiary);
     }
   }
 
   .ant-divider.ant-divider-vertical.vertical-divider {
-    height: 50px;
+    height: 32px;
+    margin: 0 8px;
+    background-color: var(--om-border-color);
+  }
+
+  .owner-label-container,
+  .domain-label-container {
+    max-width: 180px;
+  }
+
+  .domain-link-text.render-domain-lebel-style {
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .ant-btn.source-url-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    background-color: var(--om-background-tertiary);
+    color: var(--om-text-primary);
+
+    span.anticon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      height: 24px;
+      width: 24px;
+      border-radius: 50%;
+      background-color: var(--om-background-hover);
+    }
+  }
+
+  .tier-heading-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .no-tier-text {
+    font-size: 13px;
+    color: var(--om-text-tertiary);
   }
 
   .tier-container,
   .extra-info-container {
-    max-width: 148px;
-  }
-  .tier-heading-container {
-    svg {
-      fill: @de-active-color;
-    }
-  }
-
-  .ant-btn-group.spaced {
-    .ant-btn.ant-btn-default.data-contract-latest-result-button {
-      font-size: 14px;
-      padding: 6px 12px;
-      border-radius: 12px;
-      font-weight: 600;
-      box-shadow: 0px 2px 2px -1px @grey-35, 0px 4px 6px -2px @grey-35,
-        0px 12px 16px -4px @grey-35;
-
-      svg {
-        font-size: 26px;
-        fill: transparent;
-      }
-
-      &.failed {
-        color: @red-14;
-        border: 1px solid @red-19;
-        background-color: @red-9;
-      }
-
-      &.aborted {
-        color: @orange-7;
-        border: 1px solid @orange-200;
-        background-color: @orange-50;
-      }
-
-      &.running {
-        color: @primary-7;
-        border: 1px solid @blue-39;
-        background-color: @blue-33;
-      }
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 120px;
   }
 }
 

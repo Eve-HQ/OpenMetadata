@@ -18,7 +18,7 @@
   position: relative;
   border-radius: @border-rad-base;
   overflow: hidden;
-  background: @white;
+  background: var(--om-card-background);
   border: 1px solid @border-color;
   user-select: none;
   transition: all 0.3s ease;
@@ -30,7 +30,7 @@
 
   &.ProseMirror-selectednode {
     outline: none;
-    background: @white;
+    background: var(--om-card-background);
     border: 1px solid @primary-color;
     box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.1);
   }
@@ -43,8 +43,8 @@
   .file-content,
   .media-content {
     padding: @padding-sm;
-    transition: all 0.3s;
-    background: @white;
+    transition: all 0.3s ease;
+    background: var(--om-card-background);
     position: relative;
 
     &:hover {
@@ -271,7 +271,7 @@
         outline: none;
 
         &::-webkit-media-controls-panel {
-          background: @white;
+          background: var(--om-card-background);
           border: 1px solid @border-color;
           border-radius: @border-rad-base;
           padding: @padding-xs;

@@ -256,22 +256,8 @@ const SearchDropdown: FC<SearchDropdownProps> = ({
               }}
             />
           </div>
-          {showClearAllBtn && (
-            <>
-              <Divider className="m-t-xs m-b-0" />
-              <Button
-                className="p-0 m-l-sm"
-                data-testid="clear-button"
-                type="link"
-                onClick={handleClear}>
-                {t('label.clear-entity', {
-                  entity: t('label.all'),
-                })}
-              </Button>
-            </>
-          )}
-          <Divider
-            className={classNames(showClearAllBtn ? 'm-y-0' : 'm-t-xs m-b-0')}
+                    <Divider
+            className="m-t-xs m-b-0"
           />
           {hasNullOption && (
             <>
@@ -335,13 +321,18 @@ const SearchDropdown: FC<SearchDropdownProps> = ({
       open={isDropDownOpen}
       transitionName=""
       trigger={['click']}
-      onOpenChange={(visible) => {
-        visible &&
-          !isUndefined(onGetInitialOptions) &&
-          onGetInitialOptions(searchKey);
-        setIsDropDownOpen(visible);
-        setSearchText('');
-      }}>
+      onOpenChange={(visible, info) => {
+  if (info?.source === 'menu') {
+    return;
+  }
+
+  if (visible && !isUndefined(onGetInitialOptions)) {
+    onGetInitialOptions(searchKey);
+  }
+
+  setIsDropDownOpen(visible);
+  setSearchText('');
+}}>
       <Tooltip
         mouseLeaveDelay={0}
         overlayClassName={isEmpty(selectedKeys) ? 'd-none' : ''}
