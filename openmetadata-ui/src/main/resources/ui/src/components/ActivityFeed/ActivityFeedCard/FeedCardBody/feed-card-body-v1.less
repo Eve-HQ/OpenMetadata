@@ -44,7 +44,7 @@
 .show-thread {
   background: @grey-9;
   padding: 20px;
-  border: 0.5px solid #eaecf5;
+  border: 0.5px solid var(--om-border-color, #eaecf5);
   margin-top: 20px;
   border-radius: 8px;
   max-height: 400px;
@@ -61,14 +61,14 @@
 }
 
 .hide-thread {
-  background: white;
+  background: var(--om-card-background, white);
   padding: 20px;
   margin-top: 2px;
   border-radius: 8px;
   max-height: 200px;
   overflow-y: scroll;
   overflow-x: hidden;
-  border: 0.5px solid #eaecf5;
+  border: 0.5px solid var(--om-border-color, #eaecf5);
   scrollbar-width: none;
 
   &::-webkit-scrollbar {

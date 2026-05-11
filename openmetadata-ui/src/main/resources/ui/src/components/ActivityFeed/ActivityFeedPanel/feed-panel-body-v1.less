@@ -37,7 +37,7 @@
     background: @grey-9;
     border-radius: 12px;
     margin-bottom: 20px;
-    border: 0.5px solid @grey-15;
+    border: 0.5px solid var(--om-border-color, @grey-15);
   }
 
   .ant-card-body {
@@ -56,10 +56,10 @@
 }
 .activity-feed-card-new-right-panel {
   &.ant-card {
-    border: 1px solid @white;
+    border: 1px solid var(--om-border-color, @white);
     .ant-card-body {
-      background-color: @white;
-      border: 1px solid @white;
+      background-color: var(--om-card-background, @white);
+      border: 1px solid var(--om-border-color, @white);
     }
   }
 }

@@ -229,14 +229,15 @@ const DatabaseSchemaPage: FunctionComponent = () => {
 
   const saveUpdatedDatabaseSchemaData = useCallback(
     (updatedData: DatabaseSchema) => {
-      let jsonPatch: Operation[] = [];
-      if (databaseSchema) {
-        jsonPatch = compare(databaseSchema, updatedData);
+      const id = databaseSchema?.id;
+      if (!id) {
+        return Promise.reject(new Error('Schema not yet loaded'));
       }
+      const jsonPatch = compare(databaseSchema, updatedData);
 
-      return patchDatabaseSchemaDetails(databaseSchemaId, jsonPatch);
+      return patchDatabaseSchemaDetails(id, jsonPatch);
     },
-    [databaseSchemaId, databaseSchema]
+    [databaseSchema]
   );
 
   const activeTabHandler = useCallback(

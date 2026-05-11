@@ -596,10 +596,20 @@ export const DataAssetsHeader = ({
         data-testid="data-assets-header"
         gutter={[0, 20]}>
         <Col
-          className={classNames('d-flex flex-col gap-3 ', {
+          className={classNames('d-flex flex-col items-start gap-3 ', {
             'p-l-xs': isCustomizedView,
           })}
           span={24}>
+          {(window as any).EVE_METADATA_EMBEDDED && (
+            <Button
+              size="middle"
+              style={{ paddingInline: '16px', height: '36px', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '6px', alignSelf: 'flex-start', padding:'10px 10px 10px 10px' }}
+              type="text"
+              onClick={() => navigate(-1)}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+              {t('label.back')}
+            </Button>
+          )}
           <TitleBreadcrumb
             loading={isBreadcrumbLoading}
             titleLinks={breadcrumbs.map((link) =>
@@ -666,6 +676,7 @@ export const DataAssetsHeader = ({
                       <Typography.Link
                         className="cursor-pointer source-url-link"
                         href={(dataAsset as Table).sourceUrl}
+                        style={{ display: 'inline-flex', alignItems: 'center' }}
                         target="_blank">
                         <Button
                           className="source-url-button cursor-pointer font-semibold"

@@ -143,7 +143,7 @@ export const getDomainPath = (fqn?: string) => {
     path = path.replace(PLACEHOLDER_ROUTE_FQN, getEncodedFqn(fqn));
   }
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getDomainDetailsPath = (
@@ -163,7 +163,7 @@ export const getDomainDetailsPath = (
   }
   path = path.replace(PLACEHOLDER_ROUTE_FQN, getEncodedFqn(fqn));
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getGlossaryPath = (fqn?: string) => {
@@ -173,7 +173,7 @@ export const getGlossaryPath = (fqn?: string) => {
     path = path.replace(PLACEHOLDER_ROUTE_FQN, getEncodedFqn(fqn));
   }
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getApplicationDetailsPath = (fqn: string) => {
@@ -186,21 +186,21 @@ export const getApplicationDetailsPath = (fqn: string) => {
     )
     .replace(PLACEHOLDER_ROUTE_FQN, getEncodedFqn(fqn));
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getMarketPlaceAppDetailsPath = (fqn: string) => {
-  return ROUTES.MARKETPLACE_APP_DETAILS.replace(
+  return `${getBasePath()}${ROUTES.MARKETPLACE_APP_DETAILS.replace(
     PLACEHOLDER_ROUTE_FQN,
     getEncodedFqn(fqn)
-  );
+  )}`;
 };
 
 export const getAppInstallPath = (fqn: string) => {
-  return ROUTES.MARKETPLACE_APP_INSTALL.replace(
+  return `${getBasePath()}${ROUTES.MARKETPLACE_APP_INSTALL.replace(
     PLACEHOLDER_ROUTE_FQN,
     getEncodedFqn(fqn)
-  );
+  )}`;
 };
 
 export const getSettingPath = (
@@ -230,7 +230,7 @@ export const getSettingPath = (
     path = path.replace(PLACEHOLDER_SETTING_CATEGORY, category);
   }
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getSettingPathRelative = (
@@ -240,7 +240,7 @@ export const getSettingPathRelative = (
   withAction = false
 ) => {
   return getSettingPath(category, tab, withFqn, withAction).replace(
-    ROUTES.SETTINGS,
+    `${getBasePath()}${ROUTES.SETTINGS}`,
     ''
   );
 };
@@ -263,7 +263,7 @@ export const getSettingsPathWithFqn = (
   path = path.replace(PLACEHOLDER_SETTING_CATEGORY, category);
   path = path.replace(PLACEHOLDER_ROUTE_FQN, getEncodedFqn(fqn));
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getSettingCategoryPath = (category: string) => {
@@ -284,7 +284,7 @@ export const getTeamsWithFqnPath = (fqn: string) => {
     .replace(PLACEHOLDER_ROUTE_TAB, GlobalSettingOptions.TEAMS)
     .replace(PLACEHOLDER_ROUTE_FQN, getEncodedFqn(fqn));
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getRoleWithFqnPath = (fqn: string) => {
@@ -295,7 +295,7 @@ export const getRoleWithFqnPath = (fqn: string) => {
     .replace(PLACEHOLDER_ROUTE_TAB, GlobalSettingOptions.ROLES)
     .replace(PLACEHOLDER_ROUTE_FQN, getEncodedFqn(fqn));
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getPolicyWithFqnPath = (fqn: string) => {
@@ -306,7 +306,7 @@ export const getPolicyWithFqnPath = (fqn: string) => {
     .replace(PLACEHOLDER_ROUTE_TAB, GlobalSettingOptions.POLICIES)
     .replace(PLACEHOLDER_ROUTE_FQN, getEncodedFqn(fqn));
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getPath = (pathName: string) => {
@@ -641,7 +641,7 @@ export const getPersonaDetailsPath = (fqn: string) => {
     .replace(PLACEHOLDER_SETTING_CATEGORY, GlobalSettingOptions.PERSONA)
     .replace(PLACEHOLDER_ROUTE_FQN, getEncodedFqn(fqn));
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getObservabilityAlertsEditPath = (fqn: string) => {
@@ -649,7 +649,7 @@ export const getObservabilityAlertsEditPath = (fqn: string) => {
 
   path = path.replace(PLACEHOLDER_ROUTE_FQN, getEncodedFqn(fqn));
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getNotificationAlertsEditPath = (fqn: string) => {
@@ -657,7 +657,7 @@ export const getNotificationAlertsEditPath = (fqn: string) => {
 
   path = path.replace(PLACEHOLDER_ROUTE_FQN, getEncodedFqn(fqn));
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getObservabilityAlertDetailsPath = (fqn: string, tab?: string) => {
@@ -671,7 +671,7 @@ export const getObservabilityAlertDetailsPath = (fqn: string, tab?: string) => {
     tab ?? AlertDetailTabs.CONFIGURATION
   );
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getNotificationAlertDetailsPath = (fqn: string, tab?: string) => {
@@ -685,7 +685,7 @@ export const getNotificationAlertDetailsPath = (fqn: string, tab?: string) => {
     tab ?? AlertDetailTabs.CONFIGURATION
   );
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 export const getPathNameFromWindowLocation = () => {
   return window.location.pathname.replace(getBasePath() ?? '', '');
@@ -714,7 +714,7 @@ export const getVersionPath = (
     .replace(PLACEHOLDER_ROUTE_VERSION, version)
     .replace(PLACEHOLDER_ROUTE_TAB, tab ?? '');
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getServiceDetailsPath = (
@@ -880,14 +880,14 @@ export const getUserPath = (username: string, tab?: string, subTab = 'all') => {
   }
   path = path.replace(PLACEHOLDER_ROUTE_FQN, getEncodedFqn(username));
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getBotsPath = (botsName: string) => {
   let path = ROUTES.BOTS_PROFILE;
   path = path.replace(PLACEHOLDER_ROUTE_FQN, getEncodedFqn(botsName));
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 export const getAddCustomPropertyPath = (entityTypeFQN: string) => {
@@ -925,7 +925,7 @@ export const getKpiPath = (kpiName: string) => {
 
   path = path.replace(PLACEHOLDER_ROUTE_FQN, getEncodedFqn(kpiName));
 
-  return path;
+  return `${getBasePath()}${path}`;
 };
 
 /**

@@ -11,10 +11,10 @@
  *  limitations under the License.
  */
 
-import { Form, Input, Modal, Space } from 'antd';
+import { Button, Form, Input, Modal, Space } from 'antd';
 import { AxiosError } from 'axios';
 import { DateTime } from 'luxon';
-import { FC, useMemo, useState } from 'react';
+import { FC, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { VALIDATION_MESSAGES } from '../../../constants/constants';
 import {
@@ -52,6 +52,47 @@ export interface CreateAnnouncement {
   startTime: DateTime;
   endTime: DateTime;
 }
+
+interface ConfirmDatePickerProps {
+  value?: DateTime;
+  onChange?: (date: DateTime | null) => void;
+  className?: string;
+}
+
+const ConfirmDatePicker: FC<ConfirmDatePickerProps> = ({ value, onChange, className }) => {
+  const [open, setOpen] = useState(false);
+  const pendingRef = useRef<DateTime | null>(value ?? null);
+  const closingRef = useRef(false);
+
+  const close = () => {
+    closingRef.current = true;
+    setOpen(false);
+  };
+
+  const getContainer = (trigger: HTMLElement): HTMLElement =>
+    (trigger.closest('.ant-modal') as HTMLElement) ?? document.body;
+
+  return (
+    <DatePicker
+      className={className}
+      dropdownClassName="confirm-date-picker-popup"
+      getPopupContainer={getContainer}
+      open={open}
+      value={value}
+      onChange={(date) => { pendingRef.current = date; }}
+      onOpenChange={(o) => {
+        if (closingRef.current) { closingRef.current = false; return; }
+        if (o) { pendingRef.current = value ?? null; setOpen(true); }
+      }}
+      renderExtraFooter={() => (
+        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 8, padding: '4px 8px 8px' }}>
+          <Button size="small" onClick={close}>Cancel</Button>
+          <Button size="small" type="primary" onClick={() => { onChange?.(pendingRef.current); close(); }}>OK</Button>
+        </div>
+      )}
+    />
+  );
+};
 
 const AddAnnouncementModal: FC<Props> = ({
   open,
@@ -183,7 +224,7 @@ const AddAnnouncementModal: FC<Props> = ({
                 required: true,
               },
             ]}>
-            <DatePicker className="w-full" />
+            <ConfirmDatePicker className="w-full" />
           </Form.Item>
           <Form.Item
             label={t('label.end-date-time-zone', {
@@ -196,7 +237,7 @@ const AddAnnouncementModal: FC<Props> = ({
                 required: true,
               },
             ]}>
-            <DatePicker className="w-full" />
+            <ConfirmDatePicker className="w-full" />
           </Form.Item>
         </Space>
         {getField(descriptionField)}
