@@ -10,7 +10,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-import { Tooltip, Tree, TreeProps, Typography } from 'antd';
+import { Tree, TreeProps, Typography } from 'antd';
 import { DataNode } from 'antd/es/tree';
 import { AxiosError } from 'axios';
 import classNames from 'classnames';
@@ -54,33 +54,21 @@ import {
 } from './ExploreTree.interface';
 
 const ExploreTreeTitle = ({ node }: { node: ExploreTreeNode }) => {
-  const tooltipText = node.tooltip ?? node.title;
-
   return (
-    <Tooltip
-      title={
-        <Typography.Text className="text-white">
-          {tooltipText}
-          {node.type && (
-            <span className="text-grey-400">{` (${node.type})`}</span>
-          )}
-        </Typography.Text>
-      }>
-      <div className="d-flex justify-between">
-        <Typography.Text
-          className={classNames({
-            'm-l-xss': node.data?.isRoot,
-          })}
-          data-testid={`explore-tree-title-${node.data?.dataId ?? node.title}`}>
-          {node.title}
-        </Typography.Text>
-        {!isUndefined(node.count) && (
-          <span className="explore-node-count">
-            {getCountBadge(node.count)}
-          </span>
-        )}
-      </div>
-    </Tooltip>
+    <div className="d-flex justify-between">
+      <Typography.Text
+        className={classNames({
+          'm-l-xss': node.data?.isRoot,
+        })}
+        data-testid={`explore-tree-title-${node.data?.dataId ?? node.title}`}>
+        {node.title}
+      </Typography.Text>
+      {!isUndefined(node.count) && (
+        <span className="explore-node-count">
+          {getCountBadge(node.count)}
+        </span>
+      )}
+    </div>
   );
 };
 
