@@ -1,8 +1,8 @@
 name: Trivy Scan For OpenMetadata Server Docker Image
 
 on:
-  schedule:
-    - cron: '15 4 * * *'
+  # schedule:
+    # - cron: '15 4 * * *'
   workflow_dispatch:
 
 concurrency: 
